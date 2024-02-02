@@ -11,5 +11,9 @@
 	"Главная": "Main",
 	"О сайте": "About us",
 	"Развернуть": "Expand",
-	"Свернуть": "Collapse"
+	"Свернуть": "Collapse",
+	"Увеличить": "Increment",
+	"Уменьшить": "Descrement",
+	"Войти": "Auth",
+	"Контент": "Content"
 }
