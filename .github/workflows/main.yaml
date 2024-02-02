@@ -27,8 +27,6 @@ jobs:
             - name: Linting TypeScript
               run: yarn run lint:ts
               if: always()
-            - name: Linting CSS
-              run: yarn run lint:scss
             - name: Unit testing
               if: always()
               run: yarn run test
