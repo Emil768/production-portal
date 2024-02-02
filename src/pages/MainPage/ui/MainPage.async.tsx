@@ -1,10 +1,4 @@
 import { lazy } from 'react';
+import { delayForDemo } from 'shared/lib/delayDemo/delayDemo';
 
-export const MainPageAsync = lazy(
-	() =>
-		new Promise((resolve) => {
-			// @ts-ignore
-			// ТАК В РЕАЛЬНЫХ ПРОЕКТАХ НЕ ДЕЛАТЬ!!!!! ДЕЛАЕМ ДЛЯ КУРСА!
-			setTimeout(() => resolve(import('./MainPage')), 1500);
-		}),
-);
+export const MainPageAsync = lazy(() => delayForDemo(import('./MainPage')));

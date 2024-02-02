@@ -11,11 +11,8 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
-	const { theme } = useTheme();
-
 	const mods = {
 		[cls.opened]: isOpen,
-		[cls[theme]]: true,
 	};
 
 	const onCloseModal = (e: MouseEvent<HTMLDivElement>) => {
