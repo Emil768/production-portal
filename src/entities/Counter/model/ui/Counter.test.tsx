@@ -10,6 +10,7 @@ describe('Counter', () => {
 				counter: {
 					value: 12,
 				},
+				user: null,
 			},
 		});
 
@@ -23,6 +24,7 @@ describe('Counter', () => {
 				counter: {
 					value: 12,
 				},
+				user: null,
 			},
 		});
 

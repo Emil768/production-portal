@@ -1,4 +1,3 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC, MouseEvent } from 'react';
 import cls from './Modal.module.scss';

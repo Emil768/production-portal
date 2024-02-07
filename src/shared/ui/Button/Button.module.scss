@@ -1,18 +1,35 @@
 .Button {
-    cursor: pointer;
-    color: var(--primary-color);
+	cursor: pointer;
+	color: var(--inverted-primary-color);
 }
 
 .clear {
-    padding: 0;
-    border: none;
-    background: none;
-    outline: none;
+	padding: 0;
+	border: none;
+	background: none;
+	outline: none;
 }
 
 .outline {
-    padding: 10px 15px;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    background: none;
+	padding: 10px 15px;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
+	background: none;
+}
+
+.circle {
+	border-radius: 20px;
+	padding: 5px 20px;
+	border: 1px solid transparent;
+	&:focus {
+		border: 1px solid var(--primary-color);
+	}
+}
+
+.circle-bg {
+	border-radius: 50%;
+	background-color: var(--light);
+	padding: 0;
+	width: 30px;
+	height: 30px;
 }
