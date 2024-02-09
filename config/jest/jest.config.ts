@@ -19,6 +19,7 @@ export default {
 		// Обнаружил разницу между МАК ОС и ВИНДОУС!!!
 		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
 	],
+	transformIgnorePatterns: ['node_modules/(?!axios)'],
 	rootDir: '../../',
 	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 	moduleNameMapper: {
