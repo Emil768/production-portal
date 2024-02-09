@@ -1,3 +1,5 @@
 import { LoginModal } from './LoginModal/LoginModal';
+import { LoginSchema } from '../model/types';
+import { loginReducer } from '../model/slice';
 
-export { LoginModal };
+export { LoginModal, loginReducer, LoginSchema };

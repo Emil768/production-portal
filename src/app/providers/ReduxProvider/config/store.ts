@@ -1,12 +1,13 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
-import { counterReducer } from 'entities/Counter';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { loginReducer } from 'features/AuthByUsername/ui';
 import { StoreSchema } from './storeSchema';
 
 export const createReduxStore = (initialState?: StoreSchema) => {
 	const rootStore: ReducersMapObject<StoreSchema> = {
-		counter: counterReducer,
 		user: userReducer,
+		loginForm: loginReducer,
 	};
 	return configureStore<StoreSchema>({
 		reducer: rootStore,
@@ -15,5 +16,8 @@ export const createReduxStore = (initialState?: StoreSchema) => {
 	});
 };
 
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+// export type RootState = ReturnType<typeof createReduxStore>['getState'];
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<StoreSchema> = useSelector;

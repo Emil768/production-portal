@@ -1,7 +1,7 @@
-import { CounterState } from 'entities/Counter';
 import { UserSchema } from 'entities/User/model/types';
+import { LoginSchema } from 'features/AuthByUsername/ui';
 
 export interface StoreSchema {
-	counter: CounterState;
 	user: UserSchema;
+	loginForm: LoginSchema;
 }

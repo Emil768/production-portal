@@ -14,6 +14,11 @@
 	"Свернуть": "Collapse",
 	"Увеличить": "Increment",
 	"Уменьшить": "Descrement",
-	"Войти": "Auth",
-	"Контент": "Content"
+	"Войти": "Login",
+	"Выйти": "Sign out",
+	"Контент": "Content",
+	"Пользователь": "User",
+	"Форма авторизации": "Auth form",
+	"Пользователь не найден": "User not found",
+	"Неверный логин или пароль": "Invalid username or password"
 }
