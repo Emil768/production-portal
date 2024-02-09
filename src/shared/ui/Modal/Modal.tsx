@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, MouseEvent } from 'react';
+import { FC, MouseEvent, useEffect, useState } from 'react';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -7,12 +7,21 @@ interface ModalProps {
 	className?: string;
 	isOpen: boolean;
 	onClose: () => void;
+	lazy?: boolean;
 }
 
-export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
+export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) => {
+	const [isMounted, setIsMounted] = useState(false);
+
 	const mods = {
 		[cls.opened]: isOpen,
 	};
+
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(true);
+		}
+	}, [isOpen]);
 
 	const onCloseModal = (e: MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget) {
@@ -25,6 +34,10 @@ export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) 
 			onClose();
 		}
 	};
+
+	if (lazy && !isMounted) {
+		return null;
+	}
 
 	return (
 		<Portal>
