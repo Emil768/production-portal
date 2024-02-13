@@ -7,14 +7,14 @@ import './shared/config/i18n/i18n';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 
 render(
-	<ReduxProvier>
-		<BrowserRouter>
+	<BrowserRouter>
+		<ReduxProvier>
 			<ErrorBoundary>
 				<ThemeProvider>
 					<App />
 				</ThemeProvider>
 			</ErrorBoundary>
-		</BrowserRouter>
-	</ReduxProvier>,
+		</ReduxProvier>
+	</BrowserRouter>,
 	document.getElementById('root'),
 );

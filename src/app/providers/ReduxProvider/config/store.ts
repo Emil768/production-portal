@@ -1,12 +1,12 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { StoreSchema } from './storeSchema';
+import { $api } from 'shared/api/axios';
+import { ReduxStoreProps, StoreSchema } from './storeSchema';
 import { createReducerManager } from './reduxManages';
 
-export function createReduxStore(initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>) {
+export function createReduxStore({ initialState, navigate }: ReduxStoreProps) {
 	const rootReducers: ReducersMapObject<StoreSchema> = {
-		...asyncReducers,
 		user: userReducer,
 	};
 
@@ -16,6 +16,15 @@ export function createReduxStore(initialState?: StoreSchema, asyncReducers?: Red
 		reducer: reducerManager.reduce,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({
+				thunk: {
+					extraArgument: {
+						api: $api,
+						navigate,
+					},
+				},
+			}),
 	});
 
 	// @ts-ignore
