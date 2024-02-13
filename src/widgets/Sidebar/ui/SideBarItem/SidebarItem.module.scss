@@ -1,0 +1,17 @@
+.icon {
+	margin-right: 10px;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.collapsed {
+	.text {
+		display: none;
+		width: 0;
+		transition: 0.2s opacity;
+	}
+}

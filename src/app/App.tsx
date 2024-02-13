@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import 'app/styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { userActions } from 'entities/User/model/slice';
