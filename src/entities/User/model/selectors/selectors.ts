@@ -1,3 +1,3 @@
 import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
 
-export const getInitialValuesUserSelector = (state: StoreSchema) => state.user;
+export const getAuthDataSelector = (state: StoreSchema) => state.user.authData;

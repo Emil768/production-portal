@@ -41,6 +41,7 @@ module.exports = {
 		'jsx-a11y/no-static-element-interactions': 'off',
 		'no-param-reassign': 'off',
 		'implicit-arrow-linebreak': 'off',
+		'react/jsx-wrap-multilines': 'off',
 	},
 	globals: {
 		__IS_DEV__: true,

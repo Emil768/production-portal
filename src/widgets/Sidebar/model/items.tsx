@@ -1,6 +1,5 @@
 import React from 'react';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import MenuIcon from 'shared/assets/icons/menu.svg';
 import HomeIcon from 'shared/assets/icons/home.svg';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import UserIcon from 'shared/assets/icons/user.svg';
@@ -15,6 +14,7 @@ export interface SidebarItemType {
 		light: React.VFC<React.SVGProps<SVGSVGElement>>;
 	};
 	text: string;
+	isAuth?: boolean;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
@@ -41,5 +41,6 @@ export const SidebarItemsList: SidebarItemType[] = [
 			dark: UserIcon,
 		},
 		text: 'Профиль',
+		isAuth: true,
 	},
 ];

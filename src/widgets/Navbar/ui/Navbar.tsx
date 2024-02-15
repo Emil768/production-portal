@@ -3,7 +3,7 @@ import { LoginModal } from 'features/AuthByUsername/ui';
 import { useTranslation } from 'react-i18next';
 import { memo, useState } from 'react';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { getInitialValuesUserSelector } from 'entities/User/model/selectors/selectors';
+import { getAuthDataSelector } from 'entities/User/model/selectors/selectors';
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { userActions } from 'entities/User/model/slice';
 import cls from './Navbar.module.scss';
@@ -16,15 +16,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const { t } = useTranslation();
 	const [isAuthModal, setIsAuthModal] = useState(false);
 	const dispatch = useAppDispatch();
-	const { authData } = useAppSelector(getInitialValuesUserSelector);
+	const isAuth = useAppSelector(getAuthDataSelector);
 
 	const onCloseAuthModal = () => setIsAuthModal(false);
 
 	const onShowAuthModal = () => setIsAuthModal(true);
 
 	const onLogout = () => dispatch(userActions.logout());
-
-	if (authData) {
+	console.log(isAuth);
+	if (isAuth) {
 		return (
 			<div className={classNames(cls.Navbar, {}, [className])}>
 				<div className={cls.links}>

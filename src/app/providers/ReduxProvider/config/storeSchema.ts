@@ -37,4 +37,5 @@ export interface ExtraThunkProps<T> {
 		navigate: (to: To, options?: NavigateOptions) => void;
 	};
 	rejectValue: T;
+	getState: () => StoreSchema;
 }

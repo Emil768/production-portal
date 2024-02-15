@@ -8,7 +8,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { getInitialValuesLoginSelector } from 'features/AuthByUsername/model/selectors';
-import { Input } from 'shared/ui/Input/Input';
+import { Input, InputTheme } from 'shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
@@ -50,8 +50,8 @@ const LoginForm = memo(({ className, onClose }: LoginFormProps) => {
 			<div className={classNames(cls.LoginForm, {}, [className])}>
 				<Text title={`${t('Форма авторизации')}`} className={cls.title} />
 				{error && <Text text={error} theme={TextTheme.RED} />}
-				<Input onChange={onChangeUsername} value={username} />
-				<Input onChange={onChangePassword} value={password} />
+				<Input onChange={onChangeUsername} value={username} theme={InputTheme.CIRCLE} />
+				<Input onChange={onChangePassword} value={password} theme={InputTheme.CIRCLE} />
 				<Button theme={ThemeButton.CIRCLE} onClick={onLoginClick}>
 					{t('Войти')}
 				</Button>
