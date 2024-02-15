@@ -1,37 +1,36 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": "2"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "body": "some comment",
-      "postId": "1"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "username": "admin",
-      "password": "123"
-    }
-  ],
-  "profile": {
-    "first": "Emil",
-    "lastname": "Murahas",
-    "age": "222",
-    "city": "dd",
-    "username": "dd",
-    "avatar": "https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg",
-    "country": "Kazahstan"
-  }
+	"posts": [
+		{
+			"id": "1",
+			"title": "json-server",
+			"userId": "1"
+		},
+		{
+			"id": "2",
+			"title": "json-server",
+			"userId": "2"
+		}
+	],
+	"comments": [
+		{
+			"id": "1",
+			"body": "some comment",
+			"postId": "1"
+		}
+	],
+	"users": [
+		{
+			"id": "1",
+			"username": "admin",
+			"password": "123"
+		}
+	],
+	"profile": {
+		"lastname": "Murahas77",
+		"age": "222",
+		"city": "dd",
+		"username": "dd",
+		"avatar": "https://img.freepik.com/premium-photo/anime-male-avatar_950633-956.jpg",
+		"country": "Russia"
+	}
 }

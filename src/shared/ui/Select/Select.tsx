@@ -29,7 +29,7 @@ export const Select = memo((props: SelectProps) => {
 		() =>
 			options.map((option) => {
 				return (
-					<option className={cls.option} value={option.value} key={option.value}>
+					<option className={cls.Option} value={option.value} key={option.value}>
 						{option.content}
 					</option>
 				);
@@ -38,9 +38,9 @@ export const Select = memo((props: SelectProps) => {
 	);
 
 	return (
-		<div className={classNames(cls.Select, {}, [className])}>
+		<div className={classNames(cls.Select_wrapper, {}, [className])}>
 			{label && <span>{label}</span>}
-			<select className={cls.select} value={value} onChange={onChangeHandler} disabled={readOnly}>
+			<select className={cls.Select} value={value} onChange={onChangeHandler} disabled={readOnly}>
 				{optionsList}
 			</select>
 		</div>

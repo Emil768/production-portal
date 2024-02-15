@@ -2,7 +2,6 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 export interface Profile {
-	first?: string;
 	lastname?: string;
 	age?: number;
 	currency?: Currency;
@@ -12,10 +11,17 @@ export interface Profile {
 	avatar?: string;
 }
 
+type ProfilePartial<OBJ> = {
+	[P in keyof OBJ]?: string;
+};
+
+export type ValidationErroProfile = ProfilePartial<Profile & { error: string }>;
+
 export interface ProfileSchema {
 	data?: Profile;
 	formData?: Profile;
 	isLoading: boolean;
-	error?: string;
+	error?: {};
 	readonly: boolean;
+	validateErrors?: ValidationErroProfile;
 }

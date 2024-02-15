@@ -3,6 +3,7 @@ import { User, UserSchema } from '../types';
 
 export const initialState: UserSchema = {
 	authData: null,
+	_init: false,
 };
 
 export const userSlice = createSlice({
@@ -18,6 +19,8 @@ export const userSlice = createSlice({
 			if (user) {
 				state.authData = JSON.parse(user);
 			}
+
+			state._init = true;
 		},
 		logout: (state) => {
 			localStorage.removeItem('user');

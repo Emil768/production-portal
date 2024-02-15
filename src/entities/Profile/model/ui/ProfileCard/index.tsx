@@ -35,7 +35,7 @@ export function ProfileCard({ className }: ProfileCardProps) {
 		return (
 			<div className={classNames(cls.ProfileCard, {}, [className])}>
 				<Text title={t('Не удалось загрузить профиль')} theme={TextTheme.ERROR} />
-				<Text text={error} theme={TextTheme.ERROR} />
+				<Text text={error as string} theme={TextTheme.ERROR} />
 			</div>
 		);
 	}

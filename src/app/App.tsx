@@ -6,16 +6,19 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch } from './providers/ReduxProvider/config/store';
+import { useAppDispatch, useAppSelector } from './providers/ReduxProvider/config/store';
+import { getAuthInitSelector } from 'entities/User/model/selectors/selectors';
 
 function App() {
 	const { theme } = useTheme();
 	const dispatch = useAppDispatch();
+	const isAuthInit = useAppSelector(getAuthInitSelector);
 
 	useEffect(() => {
 		dispatch(userActions.initUser());
+		console.log('dispatch');
 		document.body.className = theme;
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<div className={classNames('app', {}, [])}>
@@ -24,7 +27,7 @@ function App() {
 
 				<div className="content-page">
 					<Sidebar />
-					<AppRouter />
+					{isAuthInit && <AppRouter />}
 				</div>
 			</Suspense>
 		</div>

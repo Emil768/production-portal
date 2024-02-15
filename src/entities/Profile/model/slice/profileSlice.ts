@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Profile, ProfileSchema } from '../types/profile';
+import { Profile, ProfileSchema, ValidationErroProfile } from '../types/profile';
 import { fetchProfileData } from '../services/fetchProfileData';
 import { updateProfile } from '../services/updateProfileData';
 
@@ -57,9 +57,13 @@ export const profileSlice = createSlice({
 				state.formData = action.payload;
 				state.readonly = true;
 			})
-			.addCase(updateProfile.rejected, (state, action) => {
+			.addCase(updateProfile.rejected, (state, action: PayloadAction<ValidationErroProfile>) => {
 				state.isLoading = false;
-				state.error = action.payload;
+				if (action.payload.error) {
+					state.error = action.payload.error;
+				} else {
+					state.validateErrors = action.payload;
+				}
 			});
 	},
 });

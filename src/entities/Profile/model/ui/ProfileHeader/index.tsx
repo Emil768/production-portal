@@ -37,8 +37,12 @@ export function ProfileHeader({ className }: ProfileCardProps) {
 				<Button onClick={onSetReadOnly}>{t('Редактировать')}</Button>
 			) : (
 				<div>
-					<Button onClick={onCancelEdit}>{t('Отменить')}</Button>
-					<Button onClick={onSaveEdit}>{t('Сохранить')}</Button>
+					<Button onClick={onCancelEdit} className={cls.Button}>
+						{t('Отменить')}
+					</Button>
+					<Button onClick={onSaveEdit} className={cls.Button}>
+						{t('Сохранить')}
+					</Button>
 				</div>
 			)}
 		</div>

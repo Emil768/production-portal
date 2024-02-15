@@ -6,6 +6,8 @@ export const getProfileFormDataSelector = (state: StoreSchema) => state?.profile
 
 export const getProfileErrorSelector = (state: StoreSchema) => state?.profile?.error;
 
+export const getValidationErrorsSelector = (state: StoreSchema) => state?.profile?.validateErrors;
+
 export const getIsProfileLoadingSelector = (state: StoreSchema) => state?.profile?.isLoading;
 
 export const getIsReadOnlySelector = (state: StoreSchema) => state?.profile?.readonly;

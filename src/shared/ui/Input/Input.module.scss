@@ -1,20 +1,26 @@
+.Input_wrapper {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
 .Input {
 	outline: none;
 	height: 38px;
-	display: block;
 }
 
 .circle {
 	border: 1px solid transparent;
 	border-radius: 20px;
-	padding: 8px 20px;
-	margin-bottom: 20px;
+	padding: 10px 20px;
 	&:focus {
 		border: 1px solid #1313ff;
 	}
 }
 
-.square {
+.label {
+	display: inline-block;
+	width: 8%;
+	margin-right: 10px;
 }
 
 .readOnly {

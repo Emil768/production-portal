@@ -2,6 +2,7 @@
 	--font-family-main: consolas, 'Times New Roman', serif;
 	--font-size-m: 16px;
 	--font-line-m: 24px;
+	--font-size-t: 12px;
 	--font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
 	--font-size-l: 24px;
 	--font-line-l: 32px;
@@ -13,5 +14,8 @@
 	--sidebar-width-collapsed: 120px;
 
 	--light: #fff;
-	--red: rgb(172, 57, 57);
+	--red: rgb(220 34 34);
+
+	--bg-shadow: -1px 6px 26px -14px rgba(0, 0, 0, 0.25);
+	--bg-input-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }

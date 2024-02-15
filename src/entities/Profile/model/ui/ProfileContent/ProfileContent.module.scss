@@ -1,0 +1,34 @@
+.ProfileContent {
+	box-shadow: var(--bg-shadow);
+	padding: 20px;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--light);
+}
+
+.Avatar {
+	margin-bottom: 20px;
+}
+
+.form {
+	width: 100%;
+	margin: 0 auto;
+	input {
+		width: 40%;
+		box-shadow: var(--bg-input-shadow);
+	}
+}
+
+.Select_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Select {
+	width: 20%;
+	margin-left: 10px;
+}

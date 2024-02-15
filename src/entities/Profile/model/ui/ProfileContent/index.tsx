@@ -6,7 +6,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
-import { getIsReadOnlySelector } from '../../selectors/selectors';
+import { getIsReadOnlySelector, getValidationErrorsSelector } from '../../selectors/selectors';
 import { Profile } from '../../types/profile';
 import { profileActions } from '../../slice/profileSlice';
 import cls from './ProfileContent.module.scss';
@@ -20,13 +20,7 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 	const { t } = useTranslation('profile');
 	const dispatch = useAppDispatch();
 	const readOnly = useAppSelector(getIsReadOnlySelector);
-
-	const onChangeFirstname = useCallback(
-		(value: string) => {
-			dispatch(profileActions.setUpdateData({ first: value || '' }));
-		},
-		[dispatch],
-	);
+	const error = useAppSelector(getValidationErrorsSelector);
 
 	const onChangeSurname = useCallback(
 		(value: string) => {
@@ -78,37 +72,62 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 	);
 
 	return (
-		<div className={classNames(cls.ProfileHeader, {}, [className])}>
-			{data?.avatar && <Avatar src={data.avatar} alt={t('Аватар на странице профиля')} size={200} />}
-			<div>
+		<div className={classNames(cls.ProfileContent, {}, [className])}>
+			{data?.avatar && (
+				<Avatar src={data.avatar} alt={t('Аватар на странице профиля')} size={200} className={cls.Avatar} />
+			)}
+			<div className={cls.form}>
 				<Input
-					value={data?.first || ''}
+					value={data?.username || ''}
 					theme={InputTheme.CIRCLE}
-					onChange={onChangeFirstname}
+					onChange={onChangeUsername}
 					readOnly={readOnly}
+					validate={error?.username || ''}
+					label="Имя"
 				/>
 				<Input
 					value={data?.lastname || ''}
 					theme={InputTheme.CIRCLE}
 					onChange={onChangeSurname}
 					readOnly={readOnly}
+					label="Фамилия"
 				/>
-				<Input value={data?.age || 0} theme={InputTheme.CIRCLE} onChange={onChangeAge} readOnly={readOnly} />
-				<Input value={data?.city || ''} theme={InputTheme.CIRCLE} onChange={onChangeCity} readOnly={readOnly} />
 				<Input
-					value={data?.username || ''}
+					value={data?.age || 0}
 					theme={InputTheme.CIRCLE}
-					onChange={onChangeUsername}
+					onChange={onChangeAge}
 					readOnly={readOnly}
+					validate={error?.age || ''}
+					label="Возраст"
+				/>
+				<Input
+					value={data?.city || ''}
+					theme={InputTheme.CIRCLE}
+					onChange={onChangeCity}
+					readOnly={readOnly}
+					label="Город"
 				/>
 				<Input
 					value={data?.avatar || ''}
 					theme={InputTheme.CIRCLE}
 					onChange={onChangeAvatar}
 					readOnly={readOnly}
+					label="Аватарка"
 				/>
-				<CurrencySelect value={data?.currency} onChange={onChangeCurrency} readOnly={readOnly} />
-				<CountrySelect value={data?.country} readOnly={readOnly} onChange={onChangeCountry} />
+				<div className={cls.Select_wrapper}>
+					<CurrencySelect
+						value={data?.currency}
+						onChange={onChangeCurrency}
+						readOnly={readOnly}
+						className={cls.Select}
+					/>
+					<CountrySelect
+						value={data?.country}
+						readOnly={readOnly}
+						onChange={onChangeCountry}
+						className={cls.Select}
+					/>
+				</div>
 			</div>
 		</div>
 	);
