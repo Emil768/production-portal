@@ -19,10 +19,17 @@
 
 .label {
 	display: inline-block;
-	width: 8%;
+	width: 100px;
 	margin-right: 10px;
 }
 
 .readOnly {
 	opacity: 0.7;
+}
+
+.validate {
+	border-color: var(--red);
+	&:focus {
+		border-color: var(--red);
+	}
 }

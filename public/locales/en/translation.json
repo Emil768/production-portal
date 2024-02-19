@@ -21,5 +21,6 @@
 	"Форма авторизации": "Auth form",
 	"Пользователь не найден": "User not found",
 	"Неверный логин или пароль": "Invalid username or password",
-	"Профиль": "Profile"
+	"Профиль": "Profile",
+	"Статьи": "Articles"
 }

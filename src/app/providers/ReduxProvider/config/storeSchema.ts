@@ -1,8 +1,10 @@
-import { AnyAction, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User/model/types';
 import { LoginSchema } from 'features/AuthByUsername/ui';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticlesDetailPage';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StoreSchema {
@@ -11,6 +13,8 @@ export interface StoreSchema {
 	// async
 	loginForm?: LoginSchema;
 	profile?: ProfileSchema;
+	article?: ArticleDetailsSchema;
+	article_comments?: ArticleDetailsCommentsSchema;
 }
 
 export interface ReduxStoreProps {

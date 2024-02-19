@@ -34,7 +34,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
 				type={type}
 				value={value}
 				onChange={onChangeValue}
-				className={classNames(cls.Input, {}, [className, cls[theme]])}
+				className={classNames(cls.Input, { [cls.validate]: Boolean(validate) }, [className, cls[theme]])}
 				readOnly={readOnly}
 			/>
 			{validate && <Text text={validate} size={TextSize.TINY} theme={TextTheme.ERROR} />}

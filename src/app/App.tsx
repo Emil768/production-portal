@@ -6,8 +6,8 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useAppDispatch, useAppSelector } from './providers/ReduxProvider/config/store';
 import { getAuthInitSelector } from 'entities/User/model/selectors/selectors';
+import { useAppDispatch, useAppSelector } from './providers/ReduxProvider/config/store';
 
 function App() {
 	const { theme } = useTheme();

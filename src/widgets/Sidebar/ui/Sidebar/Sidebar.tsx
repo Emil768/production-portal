@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
-import { memo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -19,16 +19,20 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 		setCollapsed((prev) => !prev);
 	};
 
+	const sidebarItems = useMemo(
+		() =>
+			SidebarItemsList.map((item) => {
+				return <SidebarItem item={item} key={item.path} collapsed={collapsed} />;
+			}),
+		[collapsed],
+	);
+
 	return (
 		<div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
 			<Button data-testid="sidebar-toggle" onClick={onToggle} theme={ThemeButton.CIRCLE_BG}>
 				<MenuIcon />
 			</Button>
-			<div className={cls.navigation}>
-				{SidebarItemsList.map((item) => {
-					return <SidebarItem item={item} key={item.path} collapsed={collapsed} />;
-				})}
-			</div>
+			<div className={cls.navigation}>{sidebarItems}</div>
 			<div className={cls.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher className={cls.lang} />

@@ -5,7 +5,7 @@ import { Profile } from '../../types/profile';
 
 export const fetchProfileData = createAsyncThunk<Profile, void, ExtraThunkProps<string>>(
 	'profile/fetchProfileData',
-	async (_, { extra, dispatch, rejectWithValue }) => {
+	async (_, { extra, rejectWithValue }) => {
 		try {
 			// @ts-ignore
 			const response = await extra.api.get<Profile>('/profile');

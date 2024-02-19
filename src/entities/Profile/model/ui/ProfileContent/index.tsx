@@ -31,7 +31,7 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 
 	const onChangeAge = useCallback(
 		(value: number) => {
-			dispatch(profileActions.setUpdateData({ age: value || 0 }));
+			dispatch(profileActions.setUpdateData({ age: Number(value) || 0 }));
 		},
 		[dispatch],
 	);
@@ -83,14 +83,15 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 					onChange={onChangeUsername}
 					readOnly={readOnly}
 					validate={error?.username || ''}
-					label="Имя"
+					label={t('Имя')}
 				/>
 				<Input
 					value={data?.lastname || ''}
 					theme={InputTheme.CIRCLE}
 					onChange={onChangeSurname}
 					readOnly={readOnly}
-					label="Фамилия"
+					validate={error?.lastname || ''}
+					label={t('Фамилия')}
 				/>
 				<Input
 					value={data?.age || 0}
@@ -98,21 +99,21 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 					onChange={onChangeAge}
 					readOnly={readOnly}
 					validate={error?.age || ''}
-					label="Возраст"
+					label={t('Возраст')}
 				/>
 				<Input
 					value={data?.city || ''}
 					theme={InputTheme.CIRCLE}
 					onChange={onChangeCity}
 					readOnly={readOnly}
-					label="Город"
+					label={t('Город')}
 				/>
 				<Input
 					value={data?.avatar || ''}
 					theme={InputTheme.CIRCLE}
 					onChange={onChangeAvatar}
 					readOnly={readOnly}
-					label="Аватарка"
+					label={t('Аватарка')}
 				/>
 				<div className={cls.Select_wrapper}>
 					<CurrencySelect

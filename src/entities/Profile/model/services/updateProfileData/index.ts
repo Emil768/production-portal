@@ -14,7 +14,7 @@ export const updateProfile = createAsyncThunk<Profile, void, ExtraThunkProps<Val
 
 			const errors = validateFieldsError(formData);
 
-			if (errors) {
+			if (Object.keys(errors).length !== 0) {
 				return rejectWithValue(errors);
 			}
 

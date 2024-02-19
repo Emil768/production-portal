@@ -7,7 +7,7 @@ export const validateFieldsError = (profile: Profile) => {
 		errors.username = 'Имя не должно быть пустым';
 	}
 
-	if (profile.lastname.trim() !== '') {
+	if (profile.lastname.trim() === '') {
 		errors.lastname = 'Имя не должно быть пустым';
 	}
 

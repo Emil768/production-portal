@@ -1,0 +1,17 @@
+.ArticleDetailCode {
+	margin: 20px 0;
+}
+
+.code {
+	background-color: var(--inverted-bg-color);
+	color: var(--inverted-primary-color);
+	padding: 20px;
+	white-space: pre-wrap;
+	position: relative;
+}
+
+.icon {
+	position: absolute;
+	right: 20px;
+	cursor: pointer;
+}

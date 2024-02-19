@@ -43,4 +43,13 @@ export const SidebarItemsList: SidebarItemType[] = [
 		text: 'Профиль',
 		isAuth: true,
 	},
+	{
+		path: RoutePath.articles,
+		icon: {
+			light: UserLightIcon,
+			dark: UserIcon,
+		},
+		text: 'Статьи',
+		isAuth: true,
+	},
 ];
