@@ -3,6 +3,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User/model/types';
+import { CommentFormSchema } from 'features/AddCommentForm/model/types';
 import { LoginSchema } from 'features/AuthByUsername/ui';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticlesDetailPage';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -15,6 +16,7 @@ export interface StoreSchema {
 	profile?: ProfileSchema;
 	article?: ArticleDetailsSchema;
 	article_comments?: ArticleDetailsCommentsSchema;
+	commentForm?: CommentFormSchema;
 }
 
 export interface ReduxStoreProps {
@@ -41,5 +43,5 @@ export interface ExtraThunkProps<T> {
 		navigate: (to: To, options?: NavigateOptions) => void;
 	};
 	rejectValue: T;
-	getState: () => StoreSchema;
+	state: StoreSchema;
 }

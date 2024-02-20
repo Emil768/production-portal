@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch } from 'app/providers/ReduxProvider/config/store';
+import { useParams } from 'react-router-dom';
 import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
 import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,14 +12,15 @@ const reducer: ReducersList = {
 
 const ProfilePage = () => {
 	const dispatch = useAppDispatch();
+	const { id } = useParams<{ id: string }>();
 
 	useEffect(() => {
-		dispatch(fetchProfileData());
+		dispatch(fetchProfileData(id));
 	}, []);
 
 	return (
 		<DynamicReducerWrapper reducers={reducer} removeAfterUnmounting>
-			<div className={classNames(cls.LoginForm, {}, [])}>
+			<div className={classNames(cls.ProfilePage, {}, [])}>
 				<ProfileCard />
 			</div>
 		</DynamicReducerWrapper>

@@ -19,7 +19,7 @@ interface DynamicReducerWrapperProps {
 export const DynamicReducerWrapper: FC<DynamicReducerWrapperProps> = ({
 	children,
 	reducers,
-	removeAfterUnmounting,
+	removeAfterUnmounting = true,
 }) => {
 	const store = useStore() as ReduxStoreWithManager;
 	const dispatch = useAppDispatch();

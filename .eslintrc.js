@@ -42,6 +42,8 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'implicit-arrow-linebreak': 'off',
 		'react/jsx-wrap-multilines': 'off',
+		'operator-linebreak': 'off',
+		'react/no-array-index-key': 'off',
 	},
 	globals: {
 		__IS_DEV__: true,

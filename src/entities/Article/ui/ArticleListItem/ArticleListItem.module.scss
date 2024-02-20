@@ -1,0 +1,54 @@
+.ArticleListItem {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+	transition: box-shadow 0.3s ease;
+	border-radius: 15px;
+	border: 2px solid var(--inverted-primary-color);
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.image_wrapper {
+	position: relative;
+}
+
+.image {
+	filter: brightness(0.7);
+	height: 130px;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.date {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	color: var(--inverted-primary-color);
+}
+
+.views {
+	display: flex;
+	gap: 10px;
+}
+
+.text {
+	line-height: 1.5;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	overflow: hidden;
+}
+
+.full {
+	.image {
+		height: 300px;
+	}
+}

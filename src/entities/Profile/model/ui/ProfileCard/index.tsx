@@ -39,6 +39,7 @@ export function ProfileCard({ className }: ProfileCardProps) {
 			</div>
 		);
 	}
+
 	return (
 		<div className={classNames(cls.ProfileCard, {}, [className])}>
 			<ProfileHeader />

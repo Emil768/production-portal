@@ -4,12 +4,14 @@ import {
 	getArticleErrorSelector,
 	getIsArticleLoadingSelector,
 } from 'entities/Article/model/selectors';
+import EyeIcon from 'shared/assets/icons/eye.svg';
 import { fetchArticleData } from 'entities/Article/model/services/fetchArticleData';
 import React, { useCallback, useEffect } from 'react';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Image } from 'shared/ui/Image/Image';
 import { Text } from 'shared/ui/Text/Text';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import { articleReducer } from '../../model/slice';
@@ -67,14 +69,19 @@ export const ArticlesDetail = ({ id }: ArticleDetailtProps) => {
 	} else {
 		content = (
 			<div className={cls.Article}>
-				<Avatar src={articles?.img} alt={t('Аватар статьи')} size={100} />
-				<Text title={articles?.title} text={articles?.subtitle} />
-				<Text text={String(articles?.views)} />
-				<Text text={articles?.createdAt} />
+				<div className={cls.header}>
+					<Avatar src={articles?.img} alt={t('Аватар статьи')} size={100} />
+					<Text title={articles?.title} text={articles?.subtitle} />
+					<div className={cls.views}>
+						<Image sourse={<EyeIcon />} />
+						<Text text={String(articles?.views)} />
+					</div>
+					<Text text={articles?.createdAt} />
 
-				{articles?.type.map((item) => {
-					return <Text text={item} key={item} />;
-				})}
+					{articles?.type.map((item) => {
+						return <Text text={item} key={item} />;
+					})}
+				</div>
 
 				{articles?.blocks.map(renderBlocks)}
 			</div>

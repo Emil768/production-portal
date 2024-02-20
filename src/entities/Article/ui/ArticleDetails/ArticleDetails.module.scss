@@ -1,4 +1,7 @@
-.Skeletons {
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
 .avatar {
@@ -14,4 +17,9 @@
 }
 .skeleton {
 	margin-bottom: 20px;
+}
+
+.views {
+	display: flex;
+	gap: 10px;
 }

@@ -21,7 +21,17 @@ interface InputProps extends HTMLInputProps {
 }
 
 export const Input: FC<InputProps> = memo((props: InputProps) => {
-	const { value, onChange, type = 'text', className, validate, theme = 'square', readOnly, label } = props;
+	const {
+		value,
+		onChange,
+		type = 'text',
+		className,
+		validate,
+		theme = 'square',
+		readOnly,
+		label,
+		...otherProps
+	} = props;
 
 	const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
 		onChange(e.target.value);
@@ -36,6 +46,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
 				onChange={onChangeValue}
 				className={classNames(cls.Input, { [cls.validate]: Boolean(validate) }, [className, cls[theme]])}
 				readOnly={readOnly}
+				{...otherProps}
 			/>
 			{validate && <Text text={validate} size={TextSize.TINY} theme={TextTheme.ERROR} />}
 		</div>

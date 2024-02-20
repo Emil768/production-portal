@@ -16,7 +16,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(userActions.initUser());
-		console.log('dispatch');
+
 		document.body.className = theme;
 	}, [dispatch]);
 

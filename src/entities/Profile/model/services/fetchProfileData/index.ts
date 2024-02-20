@@ -3,12 +3,12 @@ import { ExtraThunkProps } from 'app/providers/ReduxProvider/config/storeSchema'
 import i18next from 'i18next';
 import { Profile } from '../../types/profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ExtraThunkProps<string>>(
+export const fetchProfileData = createAsyncThunk<Profile, string, ExtraThunkProps<string>>(
 	'profile/fetchProfileData',
-	async (_, { extra, rejectWithValue }) => {
+	async (profileId, { extra, rejectWithValue }) => {
 		try {
 			// @ts-ignore
-			const response = await extra.api.get<Profile>('/profile');
+			const response = await extra.api.get<Profile>(`/profile/${profileId}`);
 
 			return response.data;
 		} catch (e) {

@@ -23,7 +23,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const onShowAuthModal = () => setIsAuthModal(true);
 
 	const onLogout = () => dispatch(userActions.logout());
-	console.log(isAuth);
+
 	if (isAuth) {
 		return (
 			<div className={classNames(cls.Navbar, {}, [className])}>
