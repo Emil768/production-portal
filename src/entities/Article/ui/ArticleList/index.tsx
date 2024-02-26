@@ -25,15 +25,14 @@ const renderSkeletons = (view: ArticleView) => {
 };
 
 export const ArticleList = memo(({ className, articles, isLoading, view }: ArticleListProps) => {
-	if (isLoading) {
-		return <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>{renderSkeletons(view)}</div>;
-	}
-
 	return (
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 			{articles.map((item) => (
 				<ArticleListItem article={item} key={item.id} view={view} />
 			))}
+			{isLoading && (
+				<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>{renderSkeletons(view)}</div>
+			)}
 		</div>
 	);
 });

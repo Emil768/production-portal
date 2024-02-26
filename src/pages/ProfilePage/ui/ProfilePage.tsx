@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Page } from 'shared/ui/Page/Page';
 import { useAppDispatch } from 'app/providers/ReduxProvider/config/store';
 import { useParams } from 'react-router-dom';
 import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
@@ -20,9 +21,11 @@ const ProfilePage = () => {
 
 	return (
 		<DynamicReducerWrapper reducers={reducer} removeAfterUnmounting>
-			<div className={classNames(cls.ProfilePage, {}, [])}>
-				<ProfileCard />
-			</div>
+			<Page>
+				<div className={classNames(cls.ProfilePage, {}, [])}>
+					<ProfileCard />
+				</div>
+			</Page>
 		</DynamicReducerWrapper>
 	);
 };

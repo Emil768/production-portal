@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Image } from 'shared/ui/Image/Image';
 import { useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { getSidebarItemsListSelector } from 'widgets/Sidebar/model/selectors';
 import { memo, useMemo, useState } from 'react';
@@ -30,15 +31,15 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	);
 
 	return (
-		<div data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-			<Button data-testid="sidebar-toggle" onClick={onToggle} theme={ThemeButton.CIRCLE_BG}>
-				<MenuIcon />
+		<menu data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+			<Button data-testid="sidebar-toggle" onClick={onToggle} theme={ThemeButton.CLEAR}>
+				<Image sourse={<MenuIcon />} />
 			</Button>
 			<div className={cls.navigation}>{sidebarItems}</div>
 			<div className={cls.switchers}>
 				<ThemeSwitcher />
 				<LangSwitcher className={cls.lang} />
 			</div>
-		</div>
+		</menu>
 	);
 });

@@ -1,5 +1,6 @@
 import { ArticlesDetail } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -46,15 +47,17 @@ const ArticlesDetailPage = () => {
 	}
 
 	return (
-		<div className={classNames(cls.ArticlesDetail, {}, [])}>
-			<AppLink to="/articles">{t('Назад')}</AppLink>
-			<ArticlesDetail id={id} />
-			<Text title={t('Комментарии')} className={cls.title} />
-			<CommentForm onCommentSend={onCommentSend} />
-			<DynamicReducerWrapper reducers={reducers}>
-				<CommentList isLoading={isLoading} comments={comments} />
-			</DynamicReducerWrapper>
-		</div>
+		<Page>
+			<div className={classNames(cls.ArticlesDetail, {}, [])}>
+				<AppLink to="/articles">{t('Назад')}</AppLink>
+				<ArticlesDetail id={id} />
+				<Text title={t('Комментарии')} className={cls.title} />
+				<CommentForm onCommentSend={onCommentSend} />
+				<DynamicReducerWrapper reducers={reducers}>
+					<CommentList isLoading={isLoading} comments={comments} />
+				</DynamicReducerWrapper>
+			</div>
+		</Page>
 	);
 };
 
