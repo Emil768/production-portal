@@ -5,9 +5,9 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User/model/types';
 import { CommentFormSchema } from 'features/AddCommentForm/model/types';
 import { LoginSchema } from 'features/AuthByUsername/ui';
+import { UISchema } from 'features/UI';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticlesDetailPage';
 import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/articlePage.schema';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -19,6 +19,7 @@ export interface StoreSchema {
 	article_comments?: ArticleDetailsCommentsSchema;
 	commentForm?: CommentFormSchema;
 	articlesPage?: ArticlePageSchema;
+	ui: UISchema;
 }
 
 export interface ReduxStoreProps {

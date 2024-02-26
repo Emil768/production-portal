@@ -2,12 +2,14 @@ import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { $api } from 'shared/api/axios';
+import { uiReducer } from 'features/UI';
 import { ReduxStoreProps, StoreSchema } from './storeSchema';
 import { createReducerManager } from './reduxManages';
 
 export function createReduxStore({ initialState }: ReduxStoreProps) {
 	const rootReducers: ReducersMapObject<StoreSchema> = {
 		user: userReducer,
+		ui: uiReducer,
 	};
 
 	const reducerManager = createReducerManager(rootReducers);
