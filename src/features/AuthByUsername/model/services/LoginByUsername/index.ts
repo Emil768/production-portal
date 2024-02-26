@@ -18,7 +18,7 @@ export const loginByUserName = createAsyncThunk<User, LoginByUsernameProps, Extr
 
 			dispatch(userActions.setUser(response.data));
 			localStorage.setItem('user', JSON.stringify(response.data));
-			extra.navigate('./profile');
+
 			return response.data;
 		} catch (e) {
 			return rejectWithValue(i18next.t('Неверный логин или пароль'));

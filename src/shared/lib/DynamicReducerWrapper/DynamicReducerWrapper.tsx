@@ -26,8 +26,12 @@ export const DynamicReducerWrapper: FC<DynamicReducerWrapperProps> = ({
 
 	useEffect(() => {
 		Object.entries(reducers).forEach(([key, value]: ReducersListEntry) => {
-			store.reducerManager?.add(key, value);
-			dispatch({ type: `@INIT ${key} reducer` });
+			const reducer = store.reducerManager.getReducerMap();
+
+			if (!reducer[key]) {
+				store.reducerManager?.add(key, value);
+				dispatch({ type: `@INIT ${key} reducer` });
+			}
 		});
 
 		return () => {

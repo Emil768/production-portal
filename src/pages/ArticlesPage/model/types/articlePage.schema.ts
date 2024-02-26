@@ -9,4 +9,5 @@ export interface ArticlePageSchema {
 	page: number;
 	limit?: number;
 	hasMore: boolean;
+	_init: boolean;
 }

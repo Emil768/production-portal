@@ -6,9 +6,9 @@ import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article'
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
-import { fetchArticlesPageData } from '../model/services/fetchArticlesData';
 import { getArticlesErrorSelector, getIsArticlesLoadingSelector, getIsArticlesViewSelector } from '../model/selectors';
 import { fetchNextLoadData } from '../model/services/fetchNextLoadData';
+import { initFetchArticlesData } from '../model/services/initFetchArticlesData';
 
 const reducers: ReducersList = {
 	articlesPage: articlesPageReducer,
@@ -34,20 +34,15 @@ const ArticlesPage = () => {
 	}, [dispatch]);
 
 	useEffect(() => {
-		dispatch(articlesPageActions.initView());
-		dispatch(
-			fetchArticlesPageData({
-				page: 1,
-			}),
-		);
-	}, [dispatch, view]);
+		dispatch(initFetchArticlesData());
+	}, [dispatch]);
 
 	if (error) {
 		return <Text title={t('Не удалось загрузить статьи')} theme={TextTheme.ERROR} />;
 	}
 
 	return (
-		<DynamicReducerWrapper reducers={reducers}>
+		<DynamicReducerWrapper reducers={reducers} removeAfterUnmounting={false}>
 			<Page onScrollEnd={onLoadNextPart}>
 				<ArticleViewSelector onViewClick={onViewClick} view={view} />
 				<ArticleList isLoading={isLoading} view={view} articles={articles} />

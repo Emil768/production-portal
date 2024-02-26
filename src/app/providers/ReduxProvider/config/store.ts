@@ -5,7 +5,7 @@ import { $api } from 'shared/api/axios';
 import { ReduxStoreProps, StoreSchema } from './storeSchema';
 import { createReducerManager } from './reduxManages';
 
-export function createReduxStore({ initialState, navigate }: ReduxStoreProps) {
+export function createReduxStore({ initialState }: ReduxStoreProps) {
 	const rootReducers: ReducersMapObject<StoreSchema> = {
 		user: userReducer,
 	};
@@ -21,7 +21,6 @@ export function createReduxStore({ initialState, navigate }: ReduxStoreProps) {
 				thunk: {
 					extraArgument: {
 						api: $api,
-						navigate,
 					},
 				},
 			}),

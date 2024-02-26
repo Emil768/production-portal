@@ -11,3 +11,5 @@ export const getArticlesLimitSelector = (state: StoreSchema) => state?.articlesP
 export const getPageArticleSelector = (state: StoreSchema) => state?.articlesPage?.page;
 
 export const getIsHasMoreArticleSelector = (state: StoreSchema) => state?.articlesPage?.hasMore;
+
+export const getIsInitArticleDataSelector = (state: StoreSchema) => state?.articlesPage?._init;

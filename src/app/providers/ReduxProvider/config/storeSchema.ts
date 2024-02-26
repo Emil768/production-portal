@@ -23,7 +23,6 @@ export interface StoreSchema {
 
 export interface ReduxStoreProps {
 	initialState?: StoreSchema;
-	navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export type StoreKeysProps = keyof StoreSchema;
@@ -42,7 +41,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema> {
 export interface ExtraThunkProps<T> {
 	extra: {
 		api: AxiosInstance;
-		navigate: (to: To, options?: NavigateOptions) => void;
 	};
 	rejectValue: T;
 	state: StoreSchema;

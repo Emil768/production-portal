@@ -1,5 +1,4 @@
 import React, { FC, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createReduxStore } from '../config/store';
 import { StoreSchema } from '../config/storeSchema';
@@ -10,9 +9,7 @@ interface ReduxProvierProps {
 }
 
 const ReduxProvier: FC<ReduxProvierProps> = ({ children, initialState }) => {
-	const navigate = useNavigate();
-
-	const store = createReduxStore({ initialState, navigate });
+	const store = createReduxStore({ initialState });
 
 	return <Provider store={store}>{children}</Provider>;
 };
