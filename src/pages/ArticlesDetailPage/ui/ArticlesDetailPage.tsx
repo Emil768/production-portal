@@ -1,4 +1,4 @@
-import { ArticlesDetail } from 'entities/Article';
+import { ArticleList, ArticlesDetail } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'shared/ui/Page/Page';
 import { useParams } from 'react-router-dom';
@@ -15,7 +15,9 @@ import { ArticleDetailPageReducer } from '../model/slice';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
 import { fetchCommentFormByArticle } from '../model/services/fetchCommentFormByArticle';
-import { getArticleComments } from '../model/slice/ArticleDetailCommentsSlice';
+import { fetchRecommendationArticles } from '../model/services/fetchRecommendationArticles';
+import { getIsArticleRecommendationsLoadingSelector } from '../model/selectors/recommendations';
+import { getArticleRecommendations } from '../model/slice/ArticleDetailRecommendationSlice';
 
 const reducers: ReducersList = {
 	articleDetailsPage: ArticleDetailPageReducer,
@@ -27,9 +29,12 @@ const ArticlesDetailPage = () => {
 	const dispatch = useAppDispatch();
 	const isLoading = useAppSelector(getIsArticleLoadingSelector);
 	// const comments = useAppSelector(getArticleComments);
+	const isLoadingRecommendations = useAppSelector(getIsArticleRecommendationsLoadingSelector);
+	// const articles = useAppSelector(getArticleRecommendations);
 
 	useEffect(() => {
 		dispatch(fetchCommentsByArticleId(id));
+		dispatch(fetchRecommendationArticles());
 	}, []);
 
 	const onCommentSend = useCallback(
@@ -53,11 +58,12 @@ const ArticlesDetailPage = () => {
 				<AppLink to="/articles">{t('Назад')}</AppLink>
 				{/* <ArticlesDetail id={id} /> */}
 				<Text title={t('Рекомендации')} />
+				<ArticleList articles={[]} isLoading={isLoadingRecommendations} />
 				<Text title={t('Комментарии')} className={cls.title} />
 				<CommentForm onCommentSend={onCommentSend} />
-				{/* <DynamicReducerWrapper reducers={reducers}>
-					<CommentList isLoading={isLoading} comments={comments} />
-				</DynamicReducerWrapper> */}
+				<DynamicReducerWrapper reducers={reducers}>
+					<CommentList isLoading={isLoading} />
+				</DynamicReducerWrapper>
 			</div>
 		</Page>
 	);
