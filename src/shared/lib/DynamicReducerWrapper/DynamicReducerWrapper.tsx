@@ -10,11 +10,7 @@ export type ReducersList = {
 
 export type ReducersListEntry = [StoreKeysProps, Reducer];
 
-interface DynamicReducerWrapperProps {
-	children: ReactNode;
-	reducers: ReducersList;
-	removeAfterUnmounting?: boolean;
-}
+interface DynamicReducerWrapperProps {}
 
 export const DynamicReducerWrapper: FC<DynamicReducerWrapperProps> = ({
 	children,
@@ -25,15 +21,6 @@ export const DynamicReducerWrapper: FC<DynamicReducerWrapperProps> = ({
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		Object.entries(reducers).forEach(([key, value]: ReducersListEntry) => {
-			const reducer = store.reducerManager.getReducerMap();
-
-			if (!reducer[key]) {
-				store.reducerManager?.add(key, value);
-				dispatch({ type: `@INIT ${key} reducer` });
-			}
-		});
-
 		return () => {
 			if (removeAfterUnmounting) {
 				Object.entries(reducers).forEach(([key, value]: ReducersListEntry) => {
