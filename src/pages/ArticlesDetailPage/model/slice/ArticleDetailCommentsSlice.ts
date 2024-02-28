@@ -9,7 +9,7 @@ const commentsAdapter = createEntityAdapter({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StoreSchema>(
-	(state) => state.article_comments || commentsAdapter.getInitialState(),
+	(state) => state.articleDetailsPage.comments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({

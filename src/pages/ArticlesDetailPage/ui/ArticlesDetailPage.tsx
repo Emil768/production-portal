@@ -11,13 +11,14 @@ import { getIsArticleLoadingSelector } from 'entities/Article/model/selectors';
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { useCallback, useEffect } from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice';
+import { ArticleDetailPageReducer } from '../model/slice';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
 import { fetchCommentFormByArticle } from '../model/services/fetchCommentFormByArticle';
+import { getArticleComments } from '../model/slice/ArticleDetailCommentsSlice';
 
 const reducers: ReducersList = {
-	article_comments: articleDetailsCommentsReducer,
+	articleDetailsPage: ArticleDetailPageReducer,
 };
 
 const ArticlesDetailPage = () => {
@@ -25,7 +26,7 @@ const ArticlesDetailPage = () => {
 	const { id } = useParams<{ id: string }>();
 	const dispatch = useAppDispatch();
 	const isLoading = useAppSelector(getIsArticleLoadingSelector);
-	const comments = useAppSelector(getArticleComments.selectAll);
+	// const comments = useAppSelector(getArticleComments);
 
 	useEffect(() => {
 		dispatch(fetchCommentsByArticleId(id));
@@ -54,9 +55,9 @@ const ArticlesDetailPage = () => {
 				<Text title={t('Рекомендации')} />
 				<Text title={t('Комментарии')} className={cls.title} />
 				<CommentForm onCommentSend={onCommentSend} />
-				<DynamicReducerWrapper reducers={reducers}>
+				{/* <DynamicReducerWrapper reducers={reducers}>
 					<CommentList isLoading={isLoading} comments={comments} />
-				</DynamicReducerWrapper>
+				</DynamicReducerWrapper> */}
 			</div>
 		</Page>
 	);

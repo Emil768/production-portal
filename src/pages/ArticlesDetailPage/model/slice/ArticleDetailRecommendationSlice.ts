@@ -8,7 +8,7 @@ const articleRecommendationAdapter = createEntityAdapter({
 });
 
 export const getArticleComments = articleRecommendationAdapter.getSelectors<StoreSchema>(
-	(state) => state.article_comments || articleRecommendationAdapter.getInitialState(),
+	(state) => state.articleDetailsPage.recommendation || articleRecommendationAdapter.getInitialState(),
 );
 
 const articleDetailsRecommendationSlice = createSlice({
