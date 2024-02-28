@@ -16,7 +16,7 @@ export interface StoreSchema {
 	article?: ArticleDetailsSchema;
 	articleDetailsPage: ArticleDetailsPageSchema;
 	commentForm?: CommentFormSchema;
-	articlesPage?: ArticlePageSchema;
+
 	ui: UISchema;
 }
 
