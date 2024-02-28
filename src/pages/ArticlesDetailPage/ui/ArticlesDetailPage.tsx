@@ -18,6 +18,7 @@ import { fetchCommentFormByArticle } from '../model/services/fetchCommentFormByA
 import { fetchRecommendationArticles } from '../model/services/fetchRecommendationArticles';
 import { getIsArticleRecommendationsLoadingSelector } from '../model/selectors/recommendations';
 import { getArticleRecommendations } from '../model/slice/ArticleDetailRecommendationSlice';
+import { getArticleComments } from '../model/slice/ArticleDetailCommentsSlice';
 
 const reducers: ReducersList = {
 	articleDetailsPage: ArticleDetailPageReducer,
@@ -28,9 +29,9 @@ const ArticlesDetailPage = () => {
 	const { id } = useParams<{ id: string }>();
 	const dispatch = useAppDispatch();
 	const isLoading = useAppSelector(getIsArticleLoadingSelector);
-	// const comments = useAppSelector(getArticleComments);
+	const comments = useAppSelector(getArticleComments.selectAll);
 	const isLoadingRecommendations = useAppSelector(getIsArticleRecommendationsLoadingSelector);
-	// const articles = useAppSelector(getArticleRecommendations);
+	const articles = useAppSelector(getArticleRecommendations.selectAll);
 
 	useEffect(() => {
 		dispatch(fetchCommentsByArticleId(id));
@@ -56,13 +57,15 @@ const ArticlesDetailPage = () => {
 		<Page>
 			<div className={classNames(cls.ArticlesDetail, {}, [])}>
 				<AppLink to="/articles">{t('Назад')}</AppLink>
-				{/* <ArticlesDetail id={id} /> */}
-				<Text title={t('Рекомендации')} />
-				<ArticleList articles={[]} isLoading={isLoadingRecommendations} />
+				<ArticlesDetail id={id} />
+				<div className={cls.recommendations}>
+					<Text className={cls.title} title={t('Рекомендации')} />
+					<ArticleList articles={articles} isLoading={isLoadingRecommendations} />
+				</div>
 				<Text title={t('Комментарии')} className={cls.title} />
 				<CommentForm onCommentSend={onCommentSend} />
 				<DynamicReducerWrapper reducers={reducers}>
-					<CommentList isLoading={isLoading} />
+					<CommentList comments={comments} isLoading={isLoading} />
 				</DynamicReducerWrapper>
 			</div>
 		</Page>

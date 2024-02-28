@@ -16,8 +16,6 @@ interface TabsProps {
 }
 
 export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
-	console.log(type);
-
 	const onTabChange = (tab: ArticleType) => () => {
 		onTabClick(tab);
 	};
@@ -25,7 +23,11 @@ export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
 		<div className={classNames(cls.Tabs, {}, [className])}>
 			{tabs.map((item) => {
 				return (
-					<div className={cls.tab} onClick={onTabChange(item.value as ArticleType)} key={item.value}>
+					<div
+						className={[cls.tab, type === item.value && cls.active].join(' ').trim()}
+						onClick={onTabChange(item.value as ArticleType)}
+						key={item.value}
+					>
 						{item.content}
 					</div>
 				);

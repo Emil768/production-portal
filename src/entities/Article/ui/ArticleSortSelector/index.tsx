@@ -3,7 +3,7 @@ import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { OrderType } from 'shared/types/articles';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleSortField, ArticleView } from '../../model/types/article';
+import { ArticleSortField } from '../../model/types/article';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
@@ -16,16 +16,16 @@ interface ArticleSortSelectorProps {
 
 export const ArticleSortSelector = memo(
 	({ className, sort, order, onOrderChange, onSortChange }: ArticleSortSelectorProps) => {
-		const { t } = useTranslation();
+		const { t } = useTranslation('articles');
 
 		const orderOptions = useMemo<SelectOption<OrderType>[]>(() => {
 			return [
 				{
-					content: 'возрастанию',
+					content: `${t('возрастанию')}`,
 					value: 'asc',
 				},
 				{
-					content: 'убыванию',
+					content: `${t('убыванию')}`,
 					value: 'desc',
 				},
 			];
@@ -34,15 +34,15 @@ export const ArticleSortSelector = memo(
 		const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(() => {
 			return [
 				{
-					content: 'дате',
+					content: `${t('дате')}`,
 					value: ArticleSortField.CREATED,
 				},
 				{
-					content: 'названию',
+					content: `${t('названию')}`,
 					value: ArticleSortField.TITLE,
 				},
 				{
-					content: 'просмотрам',
+					content: `${t('просмотрам')}`,
 					value: ArticleSortField.VIEWS,
 				},
 			];
@@ -50,8 +50,20 @@ export const ArticleSortSelector = memo(
 
 		return (
 			<div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-				<Select options={sortOptions} value={sort} label={t('Сортировать по')} onChange={onSortChange} />
-				<Select options={orderOptions} value={order} label={t('по')} onChange={onOrderChange} />
+				<Select
+					options={sortOptions}
+					value={sort}
+					label={t('Сортировать по')}
+					onChange={onSortChange}
+					className={cls.select}
+				/>
+				<Select
+					options={orderOptions}
+					value={order}
+					label={t('по')}
+					onChange={onOrderChange}
+					className={cls.select}
+				/>
 			</div>
 		);
 	},
