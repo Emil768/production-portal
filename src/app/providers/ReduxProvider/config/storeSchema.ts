@@ -6,8 +6,6 @@ import { UserSchema } from 'entities/User/model/types';
 import { CommentFormSchema } from 'features/AddCommentForm/model/types';
 import { LoginSchema } from 'features/AuthByUsername/ui';
 import { UISchema } from 'features/UI';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticlesDetailPage';
-import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/articlePage.schema';
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -16,8 +14,7 @@ export interface StoreSchema {
 	loginForm?: LoginSchema;
 	profile?: ProfileSchema;
 	article?: ArticleDetailsSchema;
-	article_comments?: ArticleDetailsCommentsSchema;
-	articleDetailsPage: ArticleDetailsSchema;
+	articleDetailsPage: ArticleDetailsPageSchema;
 	commentForm?: CommentFormSchema;
 	articlesPage?: ArticlePageSchema;
 	ui: UISchema;
