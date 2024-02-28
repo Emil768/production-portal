@@ -1,4 +1,4 @@
 import { ArticlesDetailPageAsync } from './ui/ArticlesDetailPage.async';
-import { ArticleDetailsCommentsSchema } from './model/types';
+import { ArticleDetailsPageSchema } from './model/types';
 
-export { ArticlesDetailPageAsync as ArticlesDetailtPage, ArticleDetailsCommentsSchema };
+export { ArticlesDetailPageAsync as ArticlesDetailtPage, ArticleDetailsPageSchema };

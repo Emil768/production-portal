@@ -50,7 +50,8 @@ const ArticlesDetailPage = () => {
 		<Page>
 			<div className={classNames(cls.ArticlesDetail, {}, [])}>
 				<AppLink to="/articles">{t('Назад')}</AppLink>
-				<ArticlesDetail id={id} />
+				{/* <ArticlesDetail id={id} /> */}
+				<Text title={t('Рекомендации')} />
 				<Text title={t('Комментарии')} className={cls.title} />
 				<CommentForm onCommentSend={onCommentSend} />
 				<DynamicReducerWrapper reducers={reducers}>

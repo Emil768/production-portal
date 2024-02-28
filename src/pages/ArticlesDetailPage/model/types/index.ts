@@ -1,6 +1,7 @@
-export interface ArticleDetailsCommentsSchema {
-	isLoading?: boolean;
-	error?: string;
-	ids: [];
-	entities: {};
+import { ArticleDetailsCommentsSchema } from './articleDetailPageComments';
+import { ArticleDetailsRecommendationSchema } from './articleDetailPageRecommendation';
+
+export interface ArticleDetailsPageSchema {
+	comments: ArticleDetailsCommentsSchema;
+	recommendation: ArticleDetailsRecommendationSchema;
 }

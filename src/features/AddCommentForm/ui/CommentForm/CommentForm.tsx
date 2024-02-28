@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { commentFormReducer, commentFormSActions } from 'features/AddCommentForm/model/slice';
@@ -16,7 +16,7 @@ export interface CommentFormProps {
 	onCommentSend: (value: string) => void;
 }
 
-const CommentForm = ({ onCommentSend }: CommentFormProps) => {
+const CommentForm = memo(({ onCommentSend }: CommentFormProps) => {
 	const { t } = useTranslation('articles');
 	const dispatch = useAppDispatch();
 	const text = useAppSelector(getCommentFormTextSelector);
@@ -43,6 +43,6 @@ const CommentForm = ({ onCommentSend }: CommentFormProps) => {
 			</div>
 		</DynamicReducerWrapper>
 	);
-};
+});
 
 export default CommentForm;

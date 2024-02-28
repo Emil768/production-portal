@@ -6,7 +6,7 @@ import {
 } from 'entities/Article/model/selectors';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { fetchArticleData } from 'entities/Article/model/services/fetchArticleData';
-import React, { useCallback, useEffect } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
@@ -28,7 +28,7 @@ const reducer: ReducersList = {
 	article: articleReducer,
 };
 
-export const ArticlesDetail = ({ id }: ArticleDetailtProps) => {
+export const ArticlesDetail = memo(({ id }: ArticleDetailtProps) => {
 	const { t } = useTranslation('articles');
 	const dispatch = useAppDispatch();
 	const error = useAppSelector(getArticleErrorSelector);
@@ -92,4 +92,4 @@ export const ArticlesDetail = ({ id }: ArticleDetailtProps) => {
 			<div>{content}</div>
 		</DynamicReducerWrapper>
 	);
-};
+});

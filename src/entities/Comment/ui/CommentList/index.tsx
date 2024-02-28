@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
@@ -12,7 +13,7 @@ interface CommentListProps {
 	isLoading: boolean;
 }
 
-export const CommentList = ({ className, isLoading, comments }: CommentListProps) => {
+export const CommentList = memo(({ className, isLoading, comments }: CommentListProps) => {
 	const { t } = useTranslation('articles');
 
 	if (isLoading) {
@@ -36,4 +37,4 @@ export const CommentList = ({ className, isLoading, comments }: CommentListProps
 			)}
 		</div>
 	);
-};
+});

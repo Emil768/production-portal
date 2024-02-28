@@ -2,13 +2,19 @@ import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWr
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'shared/ui/Page/Page';
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
+import { useSearchParams } from 'react-router-dom';
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlePageSlice';
-import { getArticlesErrorSelector, getIsArticlesLoadingSelector, getIsArticlesViewSelector } from '../model/selectors';
-import { fetchNextLoadData } from '../model/services/fetchNextLoadData';
-import { initFetchArticlesData } from '../model/services/initFetchArticlesData';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import {
+	getArticlesErrorSelector,
+	getIsArticlesLoadingSelector,
+	getIsArticlesViewSelector,
+} from '../../model/selectors';
+import { fetchNextLoadData } from '../../model/services/fetchNextLoadData';
+import { initFetchArticlesData } from '../../model/services/initFetchArticlesData';
+import { ArticlePageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 const reducers: ReducersList = {
 	articlesPage: articlesPageReducer,
@@ -21,20 +27,14 @@ const ArticlesPage = () => {
 	const isLoading = useAppSelector(getIsArticlesLoadingSelector);
 	const error = useAppSelector(getArticlesErrorSelector);
 	const view = useAppSelector(getIsArticlesViewSelector);
-
-	const onViewClick = useCallback(
-		(view: ArticleView) => {
-			dispatch(articlesPageActions.setView(view));
-		},
-		[dispatch],
-	);
+	const [searchParams] = useSearchParams();
 
 	const onLoadNextPart = useCallback(() => {
 		dispatch(fetchNextLoadData());
 	}, [dispatch]);
 
 	useEffect(() => {
-		dispatch(initFetchArticlesData());
+		dispatch(initFetchArticlesData(searchParams));
 	}, [dispatch]);
 
 	if (error) {
@@ -44,7 +44,7 @@ const ArticlesPage = () => {
 	return (
 		<DynamicReducerWrapper reducers={reducers} removeAfterUnmounting={false}>
 			<Page onScrollEnd={onLoadNextPart}>
-				<ArticleViewSelector onViewClick={onViewClick} view={view} />
+				<ArticlePageFilters />
 				<ArticleList isLoading={isLoading} view={view} articles={articles} />
 			</Page>
 		</DynamicReducerWrapper>

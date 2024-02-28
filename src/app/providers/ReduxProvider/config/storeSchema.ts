@@ -17,6 +17,7 @@ export interface StoreSchema {
 	profile?: ProfileSchema;
 	article?: ArticleDetailsSchema;
 	article_comments?: ArticleDetailsCommentsSchema;
+	articleDetailsPage: ArticleDetailsSchema;
 	commentForm?: CommentFormSchema;
 	articlesPage?: ArticlePageSchema;
 	ui: UISchema;
