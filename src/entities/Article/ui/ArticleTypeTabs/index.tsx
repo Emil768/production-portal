@@ -1,5 +1,4 @@
 import { memo, useCallback, useMemo } from 'react';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,7 +18,7 @@ export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSor
 	const tabsOptions = useMemo<TabItem[]>(() => {
 		return [
 			{
-				content: 'Все',
+				content: `${t('Все')}`,
 				value: ArticleType.ALL,
 			},
 			{
@@ -27,11 +26,11 @@ export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSor
 				value: ArticleType.IT,
 			},
 			{
-				content: 'Экономика',
+				content: `${t('Экономика')}`,
 				value: ArticleType.ECONOMICS,
 			},
 			{
-				content: 'Наука',
+				content: `${t('Наука')}`,
 				value: ArticleType.SCIENCE,
 			},
 		];

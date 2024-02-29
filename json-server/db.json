@@ -595,6 +595,18 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "text": "sadsadsad",
+      "id": "C-tm0ZA"
+    },
+    {
+      "userId": "1",
+      "articleId": "18",
+      "text": "test1231",
+      "id": "pmHtAwk"
     }
   ],
   "users": [
@@ -603,7 +615,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "avatar": "https://marketplace.canva.com/EAFltPVX5QA/1/0/1600w/canva-cute-cartoon-anime-girl-avatar-ZHBl2NicxII.jpg"
     },
     {
       "id": "2",
@@ -618,12 +630,12 @@
       "id": "1",
       "first": "jghwer",
       "lastname": "asfewr",
-      "age": 465,
+      "age": 22,
       "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
-      "username": "admin213",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "username": "admin777",
+      "avatar": "https://store-images.s-microsoft.com/image/apps.50628.14041116761224941.fe26cc86-1c48-433a-bf5d-147a9fed343a.991ce1fa-da52-467d-b7dc-39d970701e71"
     },
     {
       "id": "2",

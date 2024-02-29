@@ -70,7 +70,7 @@ export const ArticlesDetail = memo(({ id }: ArticleDetailtProps) => {
 		content = (
 			<div className={cls.Article}>
 				<div className={cls.header}>
-					<Avatar src={articles?.img} alt={t('Аватар статьи')} size={100} />
+					<Image sourse={articles?.img} alt={t('Аватар статьи')} />
 					<Text title={articles?.title} text={articles?.subtitle} />
 					<div className={cls.views}>
 						<Image sourse={<EyeIcon />} />

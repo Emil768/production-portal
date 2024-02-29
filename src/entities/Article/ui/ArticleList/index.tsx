@@ -8,23 +8,19 @@ import { ArticleListItem } from '../ArticleListItem';
 interface ArticleListProps {
 	className?: string;
 	articles?: Article[];
-	view: ArticleView;
+	view?: ArticleView;
 	isLoading: boolean;
 }
 
 const renderSkeletons = (view: ArticleView) => {
-	return Array(view === ArticleView.FULL ? 3 : 6)
+	return Array(view === ArticleView.FULL ? 4 : 6)
 		.fill(0)
 		.map((item, index) => {
-			return (
-				<div key={index}>
-					<Skeleton width="100%" height="200px" />
-				</div>
-			);
+			return <Skeleton width="100%" height="300px" key={index} className={cls.skeleton} />;
 		});
 };
 
-export const ArticleList = memo(({ className, articles, isLoading, view }: ArticleListProps) => {
+export const ArticleList = memo(({ className, articles, isLoading, view = ArticleView.MULT }: ArticleListProps) => {
 	return (
 		<div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
 			{articles.map((item) => (
