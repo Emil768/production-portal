@@ -19,7 +19,7 @@ import {
 } from 'pages/ArticlesPage/model/selectors';
 import { OrderType } from 'shared/types/articles';
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
-import { Input } from 'shared/ui/Input/Input';
+import { Input, InputTheme } from 'shared/ui/Input/Input';
 import { fetchArticlesPageData } from 'pages/ArticlesPage/model/services/fetchArticlesData';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
@@ -99,7 +99,13 @@ export const ArticlePageFilters = ({ className }: ArticlePageFiltersProps) => {
 				/>
 				<ArticleViewSelector onViewClick={onViewClick} view={view} />
 			</div>
-			<Input value={search} onChange={onSearchChange} />
+			<Input
+				value={search}
+				onChange={onSearchChange}
+				theme={InputTheme.CIRCLE}
+				className={cls.input}
+				placeholder={t('Поиск')}
+			/>
 			<ArticleTypeTabs type={type} onTabClick={onTabClick} />
 		</div>
 	);

@@ -39,7 +39,10 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
 				))}
 
 				<div className={cls.wrapper}>
-					<AppLink to={`/articles/${article.id}`}>{t('Читать далее...')}</AppLink>
+					{/* eslint-disable-next-line i18next/no-literal-string */}
+					<AppLink target="_blank" to={`/article/${article.id}`}>
+						{t('Читать далее...')}
+					</AppLink>
 					<div className={cls.views}>
 						<Text text={String(article.views)} />
 						<Image sourse={<EyeIcon />} />
@@ -64,7 +67,8 @@ export const ArticleListItem = memo(({ className, article, view }: ArticleListIt
 					<Image sourse={<EyeIcon />} />
 				</div>
 			</div>
-			<AppLink to={`/articles/${article.id}`}>
+			{/* eslint-disable-next-line i18next/no-literal-string */}
+			<AppLink target="_blank" to={`/article/${article.id}`}>
 				<Text text={article.title} />
 			</AppLink>
 		</div>
