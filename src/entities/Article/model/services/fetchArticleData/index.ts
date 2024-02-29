@@ -8,7 +8,11 @@ export const fetchArticleData = createAsyncThunk<Article, string, ExtraThunkProp
 	async (articleId, { extra, rejectWithValue }) => {
 		try {
 			// @ts-ignore
-			const response = await extra.api.get<Article>(`/articles/${articleId}`);
+			const response = await extra.api.get<Article>(`/articles/${articleId}`, {
+				params: {
+					_expand: 'user',
+				},
+			});
 
 			if (!response.data) {
 				return rejectWithValue(i18next.t('Не удалось загрузить статью'));

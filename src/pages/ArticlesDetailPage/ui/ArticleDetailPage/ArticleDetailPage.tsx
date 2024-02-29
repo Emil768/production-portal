@@ -11,14 +11,15 @@ import { getIsArticleLoadingSelector } from 'entities/Article/model/selectors';
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { useCallback, useEffect } from 'react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ArticleDetailPageReducer } from '../model/slice';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { ArticleDetailPageReducer } from '../../model/slice';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
-import { fetchCommentFormByArticle } from '../model/services/fetchCommentFormByArticle';
-import { fetchRecommendationArticles } from '../model/services/fetchRecommendationArticles';
-import { getIsArticleRecommendationsLoadingSelector } from '../model/selectors/recommendations';
-import { getArticleRecommendations } from '../model/slice/ArticleDetailRecommendationSlice';
-import { getArticleComments } from '../model/slice/ArticleDetailCommentsSlice';
+import { fetchCommentFormByArticle } from '../../model/services/fetchCommentFormByArticle';
+import { fetchRecommendationArticles } from '../../model/services/fetchRecommendationArticles';
+import { getIsArticleRecommendationsLoadingSelector } from '../../model/selectors/recommendations';
+import { getArticleRecommendations } from '../../model/slice/ArticleDetailRecommendationSlice';
+import { getArticleComments } from '../../model/slice/ArticleDetailCommentsSlice';
+import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 
 const reducers: ReducersList = {
 	articleDetailsPage: ArticleDetailPageReducer,
@@ -56,7 +57,7 @@ const ArticlesDetailPage = () => {
 	return (
 		<Page>
 			<div className={classNames(cls.ArticlesDetail, {}, [])}>
-				<AppLink to="/articles">{t('Назад')}</AppLink>
+				<ArticleDetailPageHeader />
 				<ArticlesDetail id={id} />
 				<div className={cls.recommendations}>
 					<Text className={cls.title} title={t('Рекомендации')} />

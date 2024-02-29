@@ -7,6 +7,7 @@ import { ArticleViewSelector } from './ui/ArticleViewSelector';
 import { articleReducer, articleActions } from './model/slice';
 import { ArticleSortSelector } from './ui/ArticleSortSelector';
 import { ArticleTypeTabs } from './ui/ArticleTypeTabs';
+import { getArticleDataSelector } from './model/selectors';
 
 export {
 	ArticlesDetail,
@@ -23,4 +24,5 @@ export {
 	ArticleSortField,
 	ArticleType,
 	ArticleTypeTabs,
+	getArticleDataSelector,
 };

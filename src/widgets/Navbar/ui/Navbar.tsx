@@ -6,6 +6,7 @@ import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { getAuthDataSelector } from 'entities/User/model/selectors/selectors';
 import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
 import { userActions } from 'entities/User/model/slice';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -28,6 +29,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 		return (
 			<nav className={classNames(cls.Navbar, {}, [className])}>
 				<div className={cls.links}>
+					<AppLink className={cls.link} to="/article/create">
+						{t('Создать статью')}
+					</AppLink>
 					<Button theme={ThemeButton.CLEAR} onClick={onLogout}>
 						{t('Выйти')}
 					</Button>

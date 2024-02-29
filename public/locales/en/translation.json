@@ -22,5 +22,6 @@
 	"Пользователь не найден": "User not found",
 	"Неверный логин или пароль": "Invalid username or password",
 	"Профиль": "Profile",
-	"Статьи": "Articles"
+	"Статьи": "Articles",
+	"Создать статью": "Create article"
 }
