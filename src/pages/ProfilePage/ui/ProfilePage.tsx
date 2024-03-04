@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { useAppDispatch } from 'app/providers/ReduxProvider/config/store';
 import { useParams } from 'react-router-dom';
 import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
