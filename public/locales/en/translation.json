@@ -23,5 +23,6 @@
 	"Неверный логин или пароль": "Invalid username or password",
 	"Профиль": "Profile",
 	"Статьи": "Articles",
-	"Создать статью": "Create article"
+	"Создать статью": "Create article",
+	"Аватар пользователя": "User Avatar"
 }

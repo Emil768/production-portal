@@ -42,10 +42,10 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
 	}, [scrollPosition]);
 
 	return (
-		<section ref={wrapperRef} onScroll={onScroll} className={classNames(cls.wrapper, {}, [className])}>
+		<main ref={wrapperRef} onScroll={onScroll} className={classNames(cls.wrapper, {}, [className])}>
 			{children}
 
 			{onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
-		</section>
+		</main>
 	);
 });

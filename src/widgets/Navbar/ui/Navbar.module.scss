@@ -1,14 +1,18 @@
 .Navbar {
-	width: 100%;
-	height: var(--navbar-height);
+	height: auto;
+	padding: 10px 30px;
 	background: var(--inverted-bg-color);
-	display: flex;
-	align-items: center;
-	padding: 20px;
 }
 
-.links {
-	margin-left: auto;
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 40px;
+
+	a {
+		margin: 0;
+	}
 }
 
 .link {
@@ -16,6 +20,29 @@
 	color: var(--inverted-primary-color);
 }
 
-.mainLink {
-	margin-right: 15px;
+.menu {
+	position: relative;
+}
+
+.menuList {
+	position: absolute;
+	top: 50px;
+	right: -20px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background: var(--inverted-bg-color);
+	width: 100px;
+	height: 60px;
+}
+
+.menuItem {
+	text-align: center;
+	list-style: none;
+	a {
+		text-decoration: none;
+	}
 }
