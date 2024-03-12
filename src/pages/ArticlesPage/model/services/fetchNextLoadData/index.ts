@@ -13,7 +13,7 @@ export const fetchNextLoadData = createAsyncThunk<void, void, ExtraThunkProps<st
 		const hasMore = getIsHasMoreArticleSelector(getState());
 		const isLoading = getIsArticlesLoadingSelector(getState());
 
-		if (hasMore && !isLoading) {
+		if (hasMore && !isLoading && page) {
 			dispatch(articlesPageActions.setPage(page + 1));
 			dispatch(fetchArticlesPageData({}));
 		}

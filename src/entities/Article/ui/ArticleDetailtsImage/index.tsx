@@ -8,7 +8,7 @@ import cls from './ArticleDetailImage.module.scss';
 
 interface ArticleDetailImageProps {
 	className?: string;
-	block?: ArticleImageBlock;
+	block: ArticleImageBlock;
 }
 
 export const ArticleDetailImage = memo(({ className, block }: ArticleDetailImageProps) => {

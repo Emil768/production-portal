@@ -16,7 +16,10 @@ const ProfilePage = () => {
 	const { id } = useParams<{ id: string }>();
 
 	useEffect(() => {
-		dispatch(fetchProfileData(id));
+		if (id) {
+			// @ts-ignore
+			dispatch(fetchProfileData(id));
+		}
 	}, []);
 
 	return (

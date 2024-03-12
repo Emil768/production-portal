@@ -35,12 +35,15 @@ const ArticlesDetailPage = () => {
 	const articles = useAppSelector(getArticleRecommendations.selectAll);
 
 	useEffect(() => {
+		// @ts-ignore
 		dispatch(fetchCommentsByArticleId(id));
+		// @ts-ignore
 		dispatch(fetchRecommendationArticles());
 	}, []);
 
 	const onCommentSend = useCallback(
 		(value: string) => {
+			// @ts-ignore
 			dispatch(fetchCommentFormByArticle(value));
 		},
 		[dispatch],

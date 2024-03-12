@@ -9,7 +9,7 @@ import cls from './ArticleDetailCode.module.scss';
 
 interface ArticleDetailCodeProps {
 	className?: string;
-	block?: ArticleCodeBlock;
+	block: ArticleCodeBlock;
 }
 
 export const ArticleDetailCode = memo(({ className, block }: ArticleDetailCodeProps) => {

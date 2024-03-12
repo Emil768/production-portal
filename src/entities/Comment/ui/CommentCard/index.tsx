@@ -6,7 +6,7 @@ import { Comment } from '../../model/types';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
-	comment?: Comment;
+	comment: Comment;
 }
 
 export const CommentCard = ({ comment }: CommentCardProps) => {

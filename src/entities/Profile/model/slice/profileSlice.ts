@@ -6,9 +6,9 @@ import { updateProfile } from '../services/updateProfileData';
 const initialState: ProfileSchema = {
 	readonly: true,
 	isLoading: false,
-	error: null,
-	data: null,
-	formData: null,
+	error: undefined,
+	data: undefined,
+	formData: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -56,12 +56,14 @@ export const profileSlice = createSlice({
 				state.data = action.payload;
 				state.formData = action.payload;
 				state.readonly = true;
-				state.validateErrors = null;
+				state.error = undefined;
+				state.validateErrors = undefined;
 			})
-			.addCase(updateProfile.rejected, (state, action: PayloadAction<ValidationErroProfile>) => {
+			// TODO: пересмотреть решение
+			.addCase(updateProfile.rejected, (state, action) => {
 				state.isLoading = false;
-				if (action.payload.error) {
-					state.error = action.payload.error;
+				if (action.payload?.error as ValidationErroProfile) {
+					state.error = action.payload?.error;
 				} else {
 					state.validateErrors = action.payload;
 				}

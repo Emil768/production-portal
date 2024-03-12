@@ -5,6 +5,7 @@ import cls from './Text.module.scss';
 export enum TextTheme {
 	RED = 'red',
 	ERROR = 'red',
+	PRIMARY = 'primary',
 }
 
 export enum TextAlign {
@@ -28,11 +29,20 @@ interface TextProps {
 	align?: TextAlign;
 }
 
-export const Text = memo(({ className, title, text, align, theme, size }: TextProps) => {
-	return (
-		<div className={classNames(cls.Text, {}, [cls[theme], cls[size], cls[align], className])}>
-			{title && <p className={cls.title}>{title}</p>}
-			{text && <p className={cls.text}>{text}</p>}
-		</div>
-	);
-});
+export const Text = memo(
+	({
+		className,
+		title,
+		text,
+		align = TextAlign.LEFT,
+		theme = TextTheme.PRIMARY,
+		size = TextSize.SMALL,
+	}: TextProps) => {
+		return (
+			<div className={classNames(cls.Text, {}, [cls[theme], cls[size], cls[align], className])}>
+				{title && <p className={cls.title}>{title}</p>}
+				{text && <p className={cls.text}>{text}</p>}
+			</div>
+		);
+	},
+);

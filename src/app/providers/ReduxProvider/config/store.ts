@@ -1,4 +1,4 @@
-import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
+import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { $api } from 'shared/api/axios';
@@ -15,9 +15,10 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 	const reducerManager = createReducerManager(rootReducers);
 
 	const store = configureStore<StoreSchema>({
-		reducer: reducerManager.reduce,
+		reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
+		// @ts-ignore
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware({
 				thunk: {
@@ -27,7 +28,6 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 				},
 			}),
 	});
-
 	// @ts-ignore
 	store.reducerManager = reducerManager;
 

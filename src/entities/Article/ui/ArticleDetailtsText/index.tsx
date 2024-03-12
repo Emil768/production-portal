@@ -6,7 +6,7 @@ import cls from './ArticleDetailText.module.scss';
 
 interface ArticleDetailTextProps {
 	className?: string;
-	block?: ArticleTextBlock;
+	block: ArticleTextBlock;
 }
 
 export const ArticleDetailText = memo(({ className, block }: ArticleDetailTextProps) => {

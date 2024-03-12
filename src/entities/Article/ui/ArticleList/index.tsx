@@ -1,15 +1,16 @@
 import { memo } from 'react';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from '../../model/consts';
 import cls from './ArticleList.module.scss';
 import { ArticleListItem } from '../ArticleListItem';
 
 interface ArticleListProps {
 	className?: string;
-	articles?: Article[];
+	articles: Article[];
 	view?: ArticleView;
-	isLoading: boolean;
+	isLoading?: boolean;
 }
 
 const renderSkeletons = (view: ArticleView) => {

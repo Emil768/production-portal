@@ -23,7 +23,7 @@ export interface ProfileSchema {
 	data?: Profile;
 	formData?: Profile;
 	isLoading: boolean;
-	error?: {};
+	error?: string;
 	readonly: boolean;
 	validateErrors?: ValidationErroProfile;
 }

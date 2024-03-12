@@ -613,6 +613,12 @@
       "articleId": "2",
       "text": "asdasdasdasd",
       "id": "5jRU9X5"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "asasdasdasdasdsad",
+      "id": "DlMx7yz"
     }
   ],
   "users": [
@@ -620,14 +626,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "admin"
+      ],
       "avatar": "https://marketplace.canva.com/EAFltPVX5QA/1/0/1600w/canva-cute-cartoon-anime-girl-avatar-ZHBl2NicxII.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "user"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "manager"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -636,11 +655,11 @@
       "id": "1",
       "first": "jghwer",
       "lastname": "asfewr",
-      "age": 22,
+      "age": 11,
       "currency": "RUB",
       "country": "Belarus",
       "city": "Moscow",
-      "username": "admin777",
+      "username": "admin72222222",
       "avatar": "https://store-images.s-microsoft.com/image/apps.50628.14041116761224941.fe26cc86-1c48-433a-bf5d-147a9fed343a.991ce1fa-da52-467d-b7dc-39d970701e71"
     },
     {

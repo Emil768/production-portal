@@ -18,7 +18,7 @@ export const ArticleDetailPageHeader = ({ className }: ArticleDetailPageHeaderPr
 	return (
 		<div className={classNames(cls.ArticlePageFilters, {}, [className])}>
 			<AppLink to="/articles">{t('Назад')}</AppLink>
-			{isEdit && <AppLink to={`/article/${article.id}/edit`}>{t('Редактировать')}</AppLink>}
+			{isEdit && <AppLink to={`/article/${article?.id}/edit`}>{t('Редактировать')}</AppLink>}
 		</div>
 	);
 };

@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/conf
 import { userActions } from 'entities/User/model/slice';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { getAuthDataSelector } from 'entities/User';
+import { getAuthDataSelector, getIsUserAdminRoleSelector, getIsUserManagerRoleSelector } from 'entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -20,6 +20,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(getAuthDataSelector);
 	const [menu, setMenu] = useState(false);
+	const isAdminRole = useAppSelector(getIsUserAdminRoleSelector);
+	const isManager = useAppSelector(getIsUserManagerRoleSelector);
+
+	const hasAdminRole = isAdminRole || isManager;
 
 	const onCloseModal = useCallback(() => {
 		setIsAuthModal(false);
@@ -38,6 +42,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 		e.stopPropagation();
 	}, []);
 
+	console.log(user);
+
 	if (user) {
 		return (
 			<nav className={classNames(cls.Navbar, {}, [className])}>
@@ -49,6 +55,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 						<Avatar src={user.avatar} alt={t('Аватар пользователя')} size={40} />
 						{menu && (
 							<ul className={cls.menuList}>
+								{hasAdminRole && (
+									<li className={cls.menuItem}>
+										<AppLink to="/admin" theme={AppLinkTheme.SECONDARY}>
+											{t('Админка')}
+										</AppLink>
+									</li>
+								)}
 								<li className={cls.menuItem}>
 									<AppLink to={`/profile/${user.id}`} theme={AppLinkTheme.SECONDARY}>
 										{t('Профиль')}

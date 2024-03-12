@@ -10,6 +10,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StoreSch
 
 	return {
 		getReducerMap: () => reducers,
+
 		reduce: (state: StoreSchema, action: AnyAction) => {
 			if (keysToRemove.length > 0) {
 				state = { ...state };
@@ -34,6 +35,7 @@ export function createReducerManager(initialReducers: ReducersMapObject<StoreSch
 			}
 			delete reducers[key];
 			keysToRemove.push(key);
+
 			combinedReducer = combineReducers(reducers);
 		},
 	};

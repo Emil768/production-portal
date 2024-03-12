@@ -1,5 +1,4 @@
-import { ArticleView } from 'entities/Article';
-import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { OrderType } from 'shared/types/articles';
 
 export interface ArticlePageSchema {

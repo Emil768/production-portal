@@ -19,7 +19,7 @@ const articleDetailsRecommendationSlice = createSlice({
 		error: undefined,
 		ids: [],
 		entities: {},
-		articles: null,
+		articles: [],
 	}),
 	reducers: {},
 	extraReducers: (builder) => {

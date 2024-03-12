@@ -25,19 +25,19 @@ export const DynamicReducerWrapper: FC<DynamicReducerWrapperProps> = ({
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		Object.entries(reducers).forEach(([key, value]: ReducersListEntry) => {
+		Object.entries(reducers).forEach(([key, value]) => {
 			const reducer = store.reducerManager.getReducerMap();
 
-			if (!reducer[key]) {
-				store.reducerManager?.add(key, value);
+			if (!reducer[key as StoreKeysProps]) {
+				store.reducerManager?.add(key as StoreKeysProps, value);
 				dispatch({ type: `@INIT ${key} reducer` });
 			}
 		});
 
 		return () => {
 			if (removeAfterUnmounting) {
-				Object.entries(reducers).forEach(([key, value]: ReducersListEntry) => {
-					store.reducerManager.remove(key);
+				Object.entries(reducers).forEach(([key, value]) => {
+					store.reducerManager.remove(key as StoreKeysProps);
 					dispatch({ type: `@DESTROY ${key}  reducer` });
 				});
 			}

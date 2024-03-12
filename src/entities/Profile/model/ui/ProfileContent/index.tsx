@@ -13,7 +13,7 @@ import cls from './ProfileContent.module.scss';
 
 interface ProfileCardProps {
 	className?: string;
-	data: Profile;
+	data?: Profile;
 }
 
 export function ProfileContent({ className, data }: ProfileCardProps) {
@@ -30,7 +30,7 @@ export function ProfileContent({ className, data }: ProfileCardProps) {
 	);
 
 	const onChangeAge = useCallback(
-		(value: number) => {
+		(value: string) => {
 			dispatch(profileActions.setUpdateData({ age: Number(value) || 0 }));
 		},
 		[dispatch],

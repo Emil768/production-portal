@@ -4,12 +4,12 @@ import MenuIcon from 'shared/assets/icons/menu.svg';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { Image } from 'shared/ui/Image/Image';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
 	className?: string;
-	view: ArticleView;
+	view?: ArticleView;
 	onViewClick: (view: ArticleView) => void;
 }
 

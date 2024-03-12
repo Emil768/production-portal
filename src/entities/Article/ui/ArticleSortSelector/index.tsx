@@ -1,9 +1,9 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { OrderType } from 'shared/types/articles';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../model/consts';
 import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
@@ -18,7 +18,7 @@ export const ArticleSortSelector = memo(
 	({ className, sort, order, onOrderChange, onSortChange }: ArticleSortSelectorProps) => {
 		const { t } = useTranslation('articles');
 
-		const orderOptions = useMemo<SelectOption<OrderType>[]>(() => {
+		const orderOptions = useMemo<SelectOption[]>(() => {
 			return [
 				{
 					content: `${t('возрастанию')}`,
@@ -31,7 +31,7 @@ export const ArticleSortSelector = memo(
 			];
 		}, []);
 
-		const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(() => {
+		const sortOptions = useMemo<SelectOption[]>(() => {
 			return [
 				{
 					content: `${t('дате')}`,
@@ -48,20 +48,34 @@ export const ArticleSortSelector = memo(
 			];
 		}, []);
 
+		const onChangeSortHandler = useCallback(
+			(sort: string) => {
+				onSortChange(sort as ArticleSortField);
+			},
+			[onSortChange],
+		);
+
+		const onChangeOrderHandler = useCallback(
+			(order: string) => {
+				onOrderChange(order as OrderType);
+			},
+			[onOrderChange],
+		);
+
 		return (
 			<div className={classNames(cls.ArticleSortSelector, {}, [className])}>
 				<Select
 					options={sortOptions}
 					value={sort}
 					label={t('Сортировать по')}
-					onChange={onSortChange}
+					onChange={onChangeSortHandler}
 					className={cls.select}
 				/>
 				<Select
 					options={orderOptions}
 					value={order}
 					label={t('по')}
-					onChange={onOrderChange}
+					onChange={onChangeOrderHandler}
 					className={cls.select}
 				/>
 			</div>

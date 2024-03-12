@@ -4,8 +4,8 @@ import { fetchArticleData } from '../services/fetchArticleData';
 
 const initialState: ArticleDetailsSchema = {
 	isLoading: false,
-	error: null,
-	data: null,
+	error: undefined,
+	data: undefined,
 };
 
 export const articleSlice = createSlice({
@@ -16,7 +16,7 @@ export const articleSlice = createSlice({
 		builder
 			.addCase(fetchArticleData.pending, (state) => {
 				state.isLoading = true;
-				state.error = null;
+				state.error = undefined;
 			})
 			.addCase(fetchArticleData.fulfilled, (state, action) => {
 				state.isLoading = false;

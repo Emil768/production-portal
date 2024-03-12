@@ -4,9 +4,9 @@ import cls from './Avatar.module.scss';
 
 interface AvatarProps {
 	className?: string;
-	src: string;
-	alt: string;
-	size: number;
+	src?: string;
+	alt?: string;
+	size?: number;
 }
 
 export const Avatar: FC<AvatarProps> = ({ className, src, alt, size }) => {

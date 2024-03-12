@@ -1,4 +1,4 @@
-import { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
@@ -7,7 +7,7 @@ import { CommentFormSchema } from 'features/AddCommentForm/model/types';
 import { LoginSchema } from 'features/AuthByUsername/ui';
 import { UISchema } from 'features/UI';
 import { ArticleDetailsPageSchema } from 'pages/ArticlesDetailPage';
-import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/articlePage.schema';
+import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/articlePageSchema';
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -30,7 +30,7 @@ export type StoreKeysProps = keyof StoreSchema;
 
 export interface ReducerManager {
 	getReducerMap: () => ReducersMapObject<StoreSchema>;
-	reduce: (state: StoreSchema, action: AnyAction) => StoreSchema;
+	reduce: (state: StoreSchema, action: AnyAction) => CombinedState<StoreSchema>;
 	add: (key: StoreKeysProps, reducer: Reducer) => void;
 	remove: (key: StoreKeysProps) => void;
 }

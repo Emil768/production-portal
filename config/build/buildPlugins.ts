@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
@@ -21,6 +22,10 @@ export function buildPlugins({ paths, isDev, api }: BuildOptions): webpack.Webpa
 		}),
 		new CopyPlugin({
 			patterns: [{ from: paths.locales, to: paths.localesBuild }],
+		}),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true,
 		}),
 	];
 

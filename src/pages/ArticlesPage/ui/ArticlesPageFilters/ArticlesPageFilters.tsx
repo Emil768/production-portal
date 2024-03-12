@@ -38,6 +38,7 @@ export const ArticlePageFilters = ({ className }: ArticlePageFiltersProps) => {
 	const type = useAppSelector(getArticleTypeDataSelector);
 
 	const fetchData = useCallback(() => {
+		// @ts-ignore
 		dispatch(fetchArticlesPageData({ replace: true }));
 	}, [dispatch]);
 

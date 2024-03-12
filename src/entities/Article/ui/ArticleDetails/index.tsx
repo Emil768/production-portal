@@ -5,15 +5,15 @@ import {
 	getIsArticleLoadingSelector,
 } from 'entities/Article/model/selectors';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import { fetchArticleData } from 'entities/Article/model/services/fetchArticleData';
 import React, { memo, useCallback, useEffect } from 'react';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Image } from 'shared/ui/Image/Image';
 import { Text } from 'shared/ui/Text/Text';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+import { ArticleBlockType } from '../../model/consts';
+import { ArticleBlock } from '../../model/types/article';
+import { fetchArticleData } from '../../model/services/fetchArticleData';
 import { articleReducer } from '../../model/slice';
 import cls from './ArticleDetails.module.scss';
 import { ArticleDetailText } from '../ArticleDetailtsText';
@@ -36,6 +36,7 @@ export const ArticlesDetail = memo(({ id }: ArticleDetailtProps) => {
 	const articles = useAppSelector(getArticleDataSelector);
 
 	useEffect(() => {
+		// @ts-ignore
 		dispatch(fetchArticleData(id));
 	}, []);
 

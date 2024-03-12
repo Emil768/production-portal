@@ -7,7 +7,6 @@ export const fetchArticleData = createAsyncThunk<Article, string, ExtraThunkProp
 	'article/fetchArticleData',
 	async (articleId, { extra, rejectWithValue }) => {
 		try {
-			// @ts-ignore
 			const response = await extra.api.get<Article>(`/articles/${articleId}`, {
 				params: {
 					_expand: 'user',

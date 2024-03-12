@@ -6,12 +6,16 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticlesDetailtPage } from 'pages/ArticlesDetailPage';
 import { ArticlesEditPage } from 'pages/ArticleEditPage';
+import { AdminPagePage } from 'pages/AdminPage';
+import { UserRoles } from 'entities/User';
 
 export type AutRouterProps = RouteProps & {
 	isAuth?: boolean;
+	roles?: UserRoles[];
 };
 
 export enum AppRoutes {
+	ADMIN = 'admin',
 	MAIN = 'main',
 	ABOUT = 'about',
 	PROFILE = 'profile',
@@ -30,11 +34,20 @@ export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.ARTICLES_DETAIL]: '/article/',
 	[AppRoutes.ARTICLES_CREATE]: '/article/:id/edit',
 	[AppRoutes.ARTICLES_EDIT]: '/article/create',
+
+	// админ
+	[AppRoutes.ADMIN]: '/admin',
 	// последний
 	[AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, AutRouterProps> = {
+	[AppRoutes.ADMIN]: {
+		path: RoutePath.admin,
+		element: <AdminPagePage />,
+		isAuth: true,
+		roles: [UserRoles.ADMIN, UserRoles.MAGAGER],
+	},
 	[AppRoutes.MAIN]: {
 		path: RoutePath.main,
 		element: <MainPage />,

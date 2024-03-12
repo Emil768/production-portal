@@ -6,7 +6,8 @@ import { Image } from 'shared/ui/Image/Image';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../model/consts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

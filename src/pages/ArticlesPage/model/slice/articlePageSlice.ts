@@ -1,13 +1,12 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
-import { ArticleSortField, ArticleType } from 'entities/Article/model/types/article';
+import { ArticleSortField, ArticleType, Article, ArticleView } from 'entities/Article';
 import { OrderType } from 'shared/types/articles';
-import { Article, ArticleView } from 'entities/Article';
-import { ArticlePageSchema } from '../types/articlePage.schema';
+import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesPageData } from '../services/fetchArticlesData';
 
-const articlesAdapter = createEntityAdapter({
-	selectId: (comment: Article) => comment.id,
+const articlesAdapter = createEntityAdapter<Article>({
+	selectId: (article: Article) => article.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StoreSchema>(
@@ -66,8 +65,9 @@ const articlesPageSlice = createSlice({
 			})
 			.addCase(fetchArticlesPageData.fulfilled, (state, action) => {
 				state.isLoading = false;
-				state.hasMore = action.payload.length >= state.limit;
-
+				if (state.limit) {
+					state.hasMore = action.payload.length >= state.limit;
+				}
 				if (action.meta.arg.replace) {
 					articlesAdapter.setAll(state, action.payload);
 				} else {
