@@ -1,5 +1,5 @@
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
-import { OrderType } from 'shared/types/articles';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { OrderType } from '@/shared/types/articles';
 
 export interface ArticlePageSchema {
 	isLoading: boolean;

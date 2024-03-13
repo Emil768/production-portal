@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { getIsArticleEditSelector } from 'pages/ArticlesDetailPage/model/selectors/articles';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { getArticleDataSelector } from 'entities/Article';
-import { useAppSelector } from 'app/providers/ReduxProvider/config/store';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getIsArticleEditSelector } from '@/pages/ArticlesDetailPage/model/selectors/articles';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { getArticleDataSelector } from '@/entities/Article';
+import { useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import cls from './ArticleDetailPageHeader.module.scss';
 
 interface ArticleDetailPageHeaderProps {

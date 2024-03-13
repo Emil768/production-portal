@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ExtraThunkProps } from 'app/providers/ReduxProvider/config/storeSchema';
-import { Article, ArticleType } from 'entities/Article';
-import { addQueryParams } from 'shared/lib/url/addQueryParams';
+import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
+import { Article, ArticleType } from '@/entities/Article';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams';
 import {
 	getArticleSortDataSelector,
 	getArticleTypeDataSelector,

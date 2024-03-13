@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ExtraThunkProps } from 'app/providers/ReduxProvider/config/storeSchema';
+import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
 import { getArticlesPageSelector, getIsArticlesLoadingSelector, getIsHasMoreArticleSelector } from '../../selectors';
 import { articlesPageActions } from '../../slice/articlePageSlice';
 import { fetchArticlesPageData } from '../fetchArticlesData';

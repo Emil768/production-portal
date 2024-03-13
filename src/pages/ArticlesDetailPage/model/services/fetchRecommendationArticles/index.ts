@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ExtraThunkProps } from 'app/providers/ReduxProvider/config/storeSchema';
-import { Article } from 'entities/Article';
+import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
+import { Article } from '@/entities/Article';
 
 export const fetchRecommendationArticles = createAsyncThunk<Article[], void, ExtraThunkProps<string>>(
 	'articleDetails/fetchRecommendationArticles',

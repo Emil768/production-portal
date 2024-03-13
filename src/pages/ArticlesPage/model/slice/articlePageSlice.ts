@@ -1,7 +1,7 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
-import { ArticleSortField, ArticleType, Article, ArticleView } from 'entities/Article';
-import { OrderType } from 'shared/types/articles';
+import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
+import { ArticleSortField, ArticleType, Article, ArticleView } from '@/entities/Article';
+import { OrderType } from '@/shared/types/articles';
 import { ArticlePageSchema } from '../types/articlePageSchema';
 import { fetchArticlesPageData } from '../services/fetchArticlesData';
 

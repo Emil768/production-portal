@@ -1,9 +1,9 @@
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
+import { userReducer } from '@/entities/User';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { $api } from 'shared/api/axios';
-import { rtkApi } from 'shared/api/rtkApi';
-import { uiReducer } from 'features/UI';
+import { $api } from '@/shared/api/axios';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { uiReducer } from '@/features/UI';
 import { ReduxStoreProps, StoreSchema } from './storeSchema';
 import { createReducerManager } from './reduxManages';
 

@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { FC, MouseEvent, ReactNode } from 'react';
-import { useModal } from 'shared/lib/hooks/useModal';
+import { useModal } from '@/shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 

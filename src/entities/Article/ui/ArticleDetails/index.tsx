@@ -1,16 +1,16 @@
-import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
+import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import {
 	getArticleDataSelector,
 	getArticleErrorSelector,
 	getIsArticleLoadingSelector,
-} from 'entities/Article/model/selectors';
-import EyeIcon from 'shared/assets/icons/eye.svg';
+} from '@/entities/Article/model/selectors';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import React, { memo, useCallback, useEffect } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useTranslation } from 'react-i18next';
-import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { Image } from 'shared/ui/Image/Image';
-import { Text } from 'shared/ui/Text/Text';
+import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
+import { Image } from '@/shared/ui/Image/Image';
+import { Text } from '@/shared/ui/Text/Text';
 import { ArticleBlockType } from '../../model/consts';
 import { ArticleBlock } from '../../model/types/article';
 import { fetchArticleData } from '../../model/services/fetchArticleData';

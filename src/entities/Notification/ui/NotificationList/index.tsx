@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { useGetNotificationListQuery } from 'entities/Notification/api/notification';
+import { useGetNotificationListQuery } from '@/entities/Notification/api/notification';
 import { useTranslation } from 'react-i18next';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import cls from './NotificationList.module.scss';
 import { NotificationItem } from '../NotificationItem';
 

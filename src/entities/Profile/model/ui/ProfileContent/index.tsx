@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { Country, CountrySelect } from 'entities/Country';
-import { Input, InputTheme } from 'shared/ui/Input/Input';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Input, InputTheme } from '@/shared/ui/Input/Input';
 import { getIsReadOnlySelector, getValidationErrorsSelector } from '../../selectors/selectors';
 import { Profile } from '../../types/profile';
 import { profileActions } from '../../slice/profileSlice';

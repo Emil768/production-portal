@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Image } from 'shared/ui/Image/Image';
-import { useAppSelector } from 'app/providers/ReduxProvider/config/store';
-import { getSidebarItemsListSelector } from 'widgets/Sidebar/model/selectors';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Image } from '@/shared/ui/Image/Image';
+import { useAppSelector } from '@/app/providers/ReduxProvider/config/store';
+import { getSidebarItemsListSelector } from '@/widgets/Sidebar/model/selectors';
 import { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher/LangSwitcher';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import MenuIcon from 'shared/assets/icons/menu.svg';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
+import { LangSwitcher } from '@/widgets/LangSwitcher/LangSwitcher';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import MenuIcon from '@/shared/assets/icons/menu.svg';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SideBarItem/SideBarItem';
 

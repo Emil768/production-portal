@@ -1,5 +1,5 @@
-import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
-import { ArticleSortField, ArticleType } from 'entities/Article';
+import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
+import { ArticleSortField, ArticleType } from '@/entities/Article';
 
 export const getArticlesErrorSelector = (state: StoreSchema) => state?.articlesPage?.error;
 

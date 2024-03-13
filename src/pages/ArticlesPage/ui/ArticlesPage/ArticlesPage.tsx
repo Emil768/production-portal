@@ -1,8 +1,8 @@
-import { DynamicReducerWrapper, ReducersList } from 'shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Page } from 'widgets/Page/Page';
-import { ArticleList } from 'entities/Article';
+import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
+import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page/Page';
+import { ArticleList } from '@/entities/Article';
 import { useSearchParams } from 'react-router-dom';
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

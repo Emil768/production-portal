@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Select } from '@/shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
 import { Currency } from '../../model/types';
 

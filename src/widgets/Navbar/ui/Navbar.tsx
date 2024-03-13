@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { LoginModal } from 'features/AuthByUsername/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { LoginModal } from '@/features/AuthByUsername/ui';
 import { useTranslation } from 'react-i18next';
 import { MouseEvent, memo, useCallback, useState } from 'react';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/config/store';
-import { userActions } from 'entities/User/model/slice';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { NotificationButton } from 'features/NotificationButton';
-import { getAuthDataSelector, getIsUserAdminRoleSelector, getIsUserManagerRoleSelector } from 'entities/User';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
+import { userActions } from '@/entities/User/model/slice';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { NotificationButton } from '@/features/NotificationButton';
+import { getAuthDataSelector, getIsUserAdminRoleSelector, getIsUserManagerRoleSelector } from '@/entities/User';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

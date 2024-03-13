@@ -1,5 +1,5 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
+import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
 
 type ActionCreatorType<Return, Arg, RejectedValue> = (
 	arg: Arg,

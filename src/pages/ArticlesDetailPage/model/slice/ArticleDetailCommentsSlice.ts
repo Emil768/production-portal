@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StoreSchema } from 'app/providers/ReduxProvider/config/storeSchema';
-import { Comment } from 'entities/Comment';
+import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
+import { Comment } from '@/entities/Comment';
 import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetailPageComments';
 
