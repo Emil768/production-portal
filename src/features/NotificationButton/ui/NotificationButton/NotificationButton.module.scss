@@ -1,0 +1,18 @@
+.NotificationButton {
+	position: relative;
+}
+
+.popup {
+	position: absolute;
+
+	padding: 10px;
+	top: 50px;
+	left: -70px;
+	width: 200px;
+	background-color: var(--inverted-bg-color);
+	border-radius: 15px;
+}
+
+.active {
+	display: block;
+}

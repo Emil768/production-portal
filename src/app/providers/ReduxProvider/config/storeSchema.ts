@@ -8,6 +8,7 @@ import { LoginSchema } from 'features/AuthByUsername/ui';
 import { UISchema } from 'features/UI';
 import { ArticleDetailsPageSchema } from 'pages/ArticlesDetailPage';
 import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/articlePageSchema';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StoreSchema {
 	user: UserSchema;
@@ -20,6 +21,7 @@ export interface StoreSchema {
 	articleDetailsPage?: ArticleDetailsPageSchema;
 	commentForm?: CommentFormSchema;
 	ui: UISchema;
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export interface ReduxStoreProps {

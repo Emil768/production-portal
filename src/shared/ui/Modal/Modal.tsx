@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, MouseEvent, ReactNode, useEffect, useState } from 'react';
+import { FC, MouseEvent, ReactNode } from 'react';
+import { useModal } from 'shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
 
@@ -12,28 +13,10 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) => {
-	const [isMounted, setIsMounted] = useState(false);
+	const { isMounted, onCloseModal } = useModal({ isOpen, onClose });
 
 	const mods = {
 		[cls.opened]: isOpen,
-	};
-
-	useEffect(() => {
-		if (isOpen) {
-			setIsMounted(true);
-		}
-	}, [isOpen]);
-
-	const onCloseModal = (e: MouseEvent<HTMLDivElement>) => {
-		if (e.target === e.currentTarget) {
-			// Закрыть только при клике на оверлей
-			onClose();
-		}
-	};
-	const onEscapeKeyDown = (e: KeyboardEvent) => {
-		if (e.key === 'Escape') {
-			onClose();
-		}
 	};
 
 	if (lazy && !isMounted) {

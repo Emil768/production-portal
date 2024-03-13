@@ -2,12 +2,14 @@ import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@redu
 import { userReducer } from 'entities/User';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { $api } from 'shared/api/axios';
+import { rtkApi } from 'shared/api/rtkApi';
 import { uiReducer } from 'features/UI';
 import { ReduxStoreProps, StoreSchema } from './storeSchema';
 import { createReducerManager } from './reduxManages';
 
 export function createReduxStore({ initialState }: ReduxStoreProps) {
 	const rootReducers: ReducersMapObject<StoreSchema> = {
+		[rtkApi.reducerPath]: rtkApi.reducer,
 		user: userReducer,
 		ui: uiReducer,
 	};
@@ -26,7 +28,7 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 						api: $api,
 					},
 				},
-			}),
+			}).concat(rtkApi.middleware),
 	});
 	// @ts-ignore
 	store.reducerManager = reducerManager;

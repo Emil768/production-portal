@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/ReduxProvider/conf
 import { userActions } from 'entities/User/model/slice';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { NotificationButton } from 'features/NotificationButton';
 import { getAuthDataSelector, getIsUserAdminRoleSelector, getIsUserManagerRoleSelector } from 'entities/User';
 import cls from './Navbar.module.scss';
 
@@ -51,6 +52,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 					<AppLink className={cls.link} to="/article/create">
 						{t('Создать статью')}
 					</AppLink>
+					<NotificationButton />
 					<div className={cls.menu} onClick={onToggleMenu}>
 						<Avatar src={user.avatar} alt={t('Аватар пользователя')} size={40} />
 						{menu && (
