@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import i18next from 'i18next';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
 import { userActions } from '@/entities/User/model/slice';
 import { User } from '@/entities/User/model/types';
-import i18next from 'i18next';
 
 interface LoginByUsernameProps {
 	username: string;

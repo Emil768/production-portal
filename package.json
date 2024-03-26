@@ -6,6 +6,9 @@
 	"scripts": {
 		"start": "webpack serve --env port=3000",
 		"start:dev": "concurrently \"yarn start\" \"npm run server\"",
+		"start:vite": "vite",
+		"start:vite:dev": "concurrently \"yarn start:vite\" \"npm run server\"",
+		"build:prod:vite": "vite build",
 		"server": "node json-server ./json-server/index.js",
 		"build:prod": "webpack  --env mode=production",
 		"build:dev": "webpack  --env mode=development",
@@ -75,6 +78,7 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "1.8.0",
+		"@vitejs/plugin-react": "^4.2.1",
 		"axios": "^1.6.7",
 		"copy-webpack-plugin": "^12.0.2",
 		"i18next": "^21.6.11",
@@ -84,6 +88,8 @@
 		"react-dom": "^18.2.0",
 		"react-i18next": "^11.15.5",
 		"react-redux": "7.2.6",
-		"react-router-dom": "^6.2.1"
+		"react-router-dom": "^6.2.1",
+		"vite": "^5.2.6",
+		"vite-plugin-svgr": "2.2.1"
 	}
 }
