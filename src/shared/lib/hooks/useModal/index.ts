@@ -2,7 +2,7 @@ import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 interface useModalProps {
 	isOpen: boolean;
-	onClose: () => void;
+	onClose?: () => void;
 }
 
 export const useModal = ({ isOpen, onClose }: useModalProps) => {
@@ -17,7 +17,7 @@ export const useModal = ({ isOpen, onClose }: useModalProps) => {
 	const onCloseModal = (e: MouseEvent<HTMLDivElement>) => {
 		if (e.target === e.currentTarget) {
 			// Закрыть только при клике на оверлей
-			onClose();
+			onClose?.();
 		}
 	};
 	return {

@@ -1,6 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getAuthDataSelector } from '@/entities/User/model/selectors/selectors';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import HomeIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import UserIcon from '@/shared/assets/icons/user.svg';
@@ -8,6 +7,7 @@ import UserLightIcon from '@/shared/assets/icons/user_light.svg';
 import HomeLightIcon from '@/shared/assets/icons/home_light.svg';
 import AboutLightIcon from '@/shared/assets/icons/about_light.svg';
 import { SidebarItemType } from '../types';
+import { RoutePath } from '@/shared/consts/router';
 
 export const getSidebarItemsListSelector = createSelector(getAuthDataSelector, (userAuth) => {
 	const sidebarItemsList: SidebarItemType[] = [

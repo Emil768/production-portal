@@ -64,7 +64,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 		<RatingCard
 			onCancel={onCancel}
 			onAccept={onAccept}
-			rate={rating?.rate}
+			rate={rating?.rate || 0}
 			className={className}
 			title={t('Оцените статью')}
 			feedbackTitle={t('Оставьте свой отзыв о статье, это поможет улучшить качество')}
