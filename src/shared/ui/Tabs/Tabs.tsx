@@ -1,5 +1,5 @@
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ChangeEvent, memo, useMemo } from 'react';
 import { ArticleType } from '@/entities/Article';
 import cls from './Tabs.module.scss';
 

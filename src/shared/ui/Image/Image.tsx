@@ -1,17 +1,17 @@
+import React, { ImgHTMLAttributes, ReactNode, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import React, { ReactNode, memo } from 'react';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import cls from './Image.module.scss';
 
-interface ImageProps {
+interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 	className?: string;
 	sourse?: string | ReactNode;
-	width?: string;
-	height?: string;
+	width?: string | number;
+	height?: string | number;
 	alt?: string;
 }
 
-export const Image = memo(({ className, sourse, width, alt, height }: ImageProps) => {
+export const Image = memo(({ className, sourse, width, alt, height, ...otherProps }: ImageProps) => {
 	const { theme } = useTheme();
 	return (
 		<div
@@ -20,6 +20,7 @@ export const Image = memo(({ className, sourse, width, alt, height }: ImageProps
 				width,
 				height,
 			}}
+			{...otherProps}
 		>
 			{typeof sourse === 'string' ? <img src={sourse} alt={alt} /> : sourse}
 		</div>

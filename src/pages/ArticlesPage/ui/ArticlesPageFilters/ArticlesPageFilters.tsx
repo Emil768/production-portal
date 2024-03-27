@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
@@ -9,7 +10,6 @@ import {
 	ArticleView,
 	ArticleViewSelector,
 } from '@/entities/Article';
-import { useCallback } from 'react';
 import {
 	getArticleSortDataSelector,
 	getArticleTypeDataSelector,

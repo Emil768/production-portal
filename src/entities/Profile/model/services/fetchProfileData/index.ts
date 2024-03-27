@@ -1,6 +1,6 @@
+import i18next from 'i18next';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
-import i18next from 'i18next';
 import { Profile } from '../../types/profile';
 
 export const fetchProfileData = createAsyncThunk<Profile, string, ExtraThunkProps<string>>(

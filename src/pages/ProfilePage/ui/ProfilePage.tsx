@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Page } from '@/widgets/Page/Page';
 import { useAppDispatch } from '@/app/providers/ReduxProvider/config/store';
-import { useParams } from 'react-router-dom';
 import { ProfileCard, fetchProfileData, profileReducer } from '@/entities/Profile';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { classNames } from '@/shared/lib/classNames/classNames';

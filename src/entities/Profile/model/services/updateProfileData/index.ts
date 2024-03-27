@@ -1,6 +1,6 @@
+import i18next from 'i18next';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
-import i18next from 'i18next';
 import { Profile, ValidationErroProfile } from '../../types/profile';
 import { getProfileFormDataSelector } from '../../selectors/selectors';
 import { validateFieldsError } from '../validateProfileData';

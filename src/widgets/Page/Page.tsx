@@ -1,9 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { MutableRefObject, ReactNode, UIEvent, memo, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { uiActions } from '@/features/UI';
-import { useLocation } from 'react-router-dom';
 import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
 import { getUiScrollByPath } from '@/features/UI/model/selectors';
 import { useThrottle } from '@/shared/lib/hooks/userThrottle';

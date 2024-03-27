@@ -1,6 +1,6 @@
+import i18next from 'i18next';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
-import i18next from 'i18next';
 import { Article } from '../../types/article';
 
 export const fetchArticleData = createAsyncThunk<Article, string, ExtraThunkProps<string>>(

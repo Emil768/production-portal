@@ -1,7 +1,8 @@
-import { ArticleList, ArticlesDetail } from '@/entities/Article';
 import { useTranslation } from 'react-i18next';
-import { Page } from '@/widgets/Page/Page';
 import { useParams } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { ArticleList, ArticlesDetail } from '@/entities/Article';
+import { Page } from '@/widgets/Page/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text/Text';
 import { CommentForm } from '@/features/AddCommentForm';
@@ -9,8 +10,6 @@ import { CommentList } from '@/entities/Comment';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { getIsArticleLoadingSelector } from '@/entities/Article/model/selectors';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
-import { useCallback, useEffect } from 'react';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleDetailPageReducer } from '../../model/slice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
@@ -20,6 +19,7 @@ import { getIsArticleRecommendationsLoadingSelector } from '../../model/selector
 import { getArticleRecommendations } from '../../model/slice/ArticleDetailRecommendationSlice';
 import { getArticleComments } from '../../model/slice/ArticleDetailCommentsSlice';
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
+import { ArticleRating } from '@/features/articleRating';
 
 const reducers: ReducersList = {
 	articleDetailsPage: ArticleDetailPageReducer,
@@ -66,6 +66,7 @@ const ArticlesDetailPage = () => {
 					<Text className={cls.title} title={t('Рекомендации')} />
 					<ArticleList articles={articles} isLoading={isLoadingRecommendations} />
 				</div>
+				<ArticleRating articleId={id} />
 				<Text title={t('Комментарии')} className={cls.title} />
 				<CommentForm onCommentSend={onCommentSend} />
 				<DynamicReducerWrapper reducers={reducers}>

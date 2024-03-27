@@ -1,8 +1,8 @@
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleCodeBlock } from '@/entities/Article/model/types/article';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import CheckIcon from '@/shared/assets/icons/check.svg';
-import { memo, useState } from 'react';
 import { Image } from '@/shared/ui/Image/Image';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import cls from './ArticleDetailCode.module.scss';

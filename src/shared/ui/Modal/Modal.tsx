@@ -1,5 +1,5 @@
+import { FC, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { FC, MouseEvent, ReactNode } from 'react';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -7,7 +7,7 @@ import { Portal } from '../Portal/Portal';
 interface ModalProps {
 	className?: string;
 	isOpen: boolean;
-	onClose: () => void;
+	onClose?: () => void;
 	lazy?: boolean;
 	children: ReactNode;
 }

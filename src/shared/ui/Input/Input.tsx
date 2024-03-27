@@ -1,5 +1,5 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ChangeEvent, FC, InputHTMLAttributes, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { Text, TextSize, TextTheme } from '../Text/Text';
 

@@ -1,7 +1,7 @@
+import { MouseEvent, memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { LoginModal } from '@/features/AuthByUsername/ui';
-import { useTranslation } from 'react-i18next';
-import { MouseEvent, memo, useCallback, useState } from 'react';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { userActions } from '@/entities/User/model/slice';
@@ -42,8 +42,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 		setMenu((prev) => !prev);
 		e.stopPropagation();
 	}, []);
-
-	console.log(user);
 
 	if (user) {
 		return (

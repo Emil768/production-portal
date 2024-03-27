@@ -1,5 +1,5 @@
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Comment } from '../../model/types';

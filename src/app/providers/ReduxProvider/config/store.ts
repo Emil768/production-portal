@@ -1,6 +1,6 @@
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { $api } from '@/shared/api/axios';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { uiReducer } from '@/features/UI';
