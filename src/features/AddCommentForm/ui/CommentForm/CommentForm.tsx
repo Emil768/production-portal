@@ -4,9 +4,10 @@ import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducer
 import { commentFormReducer, commentFormSActions } from '../../model/slice';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { getCommentFormTextSelector } from '../../model/selectors';
 import cls from './CommentForm.module.scss';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 const reducers: ReducersList = {
 	commentForm: commentFormReducer,

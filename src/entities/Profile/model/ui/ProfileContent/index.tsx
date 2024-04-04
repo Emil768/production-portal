@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
@@ -10,6 +9,8 @@ import { getIsReadOnlySelector, getValidationErrorsSelector } from '../../select
 import { Profile } from '../../types/profile';
 import { profileActions } from '../../slice/profileSlice';
 import cls from './ProfileContent.module.scss';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface ProfileCardProps {
 	className?: string;

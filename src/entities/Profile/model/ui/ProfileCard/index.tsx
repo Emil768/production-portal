@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import cls from './ProfileCard.module.scss';
@@ -12,6 +11,7 @@ import {
 	getProfileErrorSelector,
 	getProfileFormDataSelector,
 } from '../../selectors/selectors';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface ProfileCardProps {
 	className?: string;

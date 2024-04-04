@@ -9,7 +9,6 @@ import { CommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
 import { getIsArticleLoadingSelector } from '@/entities/Article/model/selectors';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { ArticleDetailPageReducer } from '../../model/slice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
@@ -20,6 +19,8 @@ import { getArticleRecommendations } from '../../model/slice/ArticleDetailRecomm
 import { getArticleComments } from '../../model/slice/ArticleDetailCommentsSlice';
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 import { ArticleRating } from '@/features/articleRating';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 const reducers: ReducersList = {
 	articleDetailsPage: ArticleDetailPageReducer,

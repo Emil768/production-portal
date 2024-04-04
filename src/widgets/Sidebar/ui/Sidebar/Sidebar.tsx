@@ -1,14 +1,14 @@
 import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Image } from '@/shared/ui/Image/Image';
-import { useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { getSidebarItemsListSelector } from '../../model/selectors';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
-import { LangSwitcher } from '@/widgets/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import MenuIcon from '@/shared/assets/icons/menu.svg';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SideBarItem/SideBarItem';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface SidebarProps {
 	className?: string;

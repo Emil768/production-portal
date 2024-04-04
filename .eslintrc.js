@@ -44,7 +44,14 @@ module.exports = {
 		'react/jsx-wrap-multilines': 'off',
 		'operator-linebreak': 'off',
 		'react/no-array-index-key': 'off',
-		'murahas-plugin/path-checker': 'error',
+		'murahas-plugin/path-checker': ['error', { alias: '@' }],
+		'murahas-plugin/fsd-imports': [
+			'error',
+			{
+				alias: '@',
+				ignoreImportPatterns: ['**/ReduxProvider/**'],
+			},
+		],
 	},
 	globals: {
 		__IS_DEV__: true,

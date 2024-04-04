@@ -1,4 +1,4 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import { CombinedState, Reducer, ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/axios';
@@ -38,6 +38,3 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
 // export type RootState = ReturnType<typeof createReduxStore>['getState'];
-
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<StoreSchema> = useSelector;

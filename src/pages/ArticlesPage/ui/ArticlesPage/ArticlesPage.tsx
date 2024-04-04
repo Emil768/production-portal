@@ -2,7 +2,6 @@ import React, { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { Page } from '@/widgets/Page/Page';
 import { ArticleList } from '@/entities/Article';
@@ -15,6 +14,8 @@ import {
 import { fetchNextLoadData } from '../../model/services/fetchNextLoadData';
 import { initFetchArticlesData } from '../../model/services/initFetchArticlesData';
 import { ArticlePageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const reducers: ReducersList = {
 	articlesPage: articlesPageReducer,

@@ -7,9 +7,9 @@ import { ArticlesDetailtPage } from '@/pages/ArticlesDetailPage';
 import { ArticlesEditPage } from '@/pages/ArticleEditPage';
 import { AdminPagePage } from '@/pages/AdminPage';
 import { AppRoutes } from '@/shared/types/router';
-import { AutRouterProps } from '@/shared/config/routeConfig/routeConfig';
 import { RoutePath } from '@/shared/consts/router';
 import { UserRoles } from '@/entities/User';
+import { AutRouterProps } from '../types/routeConfig/routeConfig';
 
 export const routeConfig: Record<AppRoutes, AutRouterProps> = {
 	[AppRoutes.ADMIN]: {

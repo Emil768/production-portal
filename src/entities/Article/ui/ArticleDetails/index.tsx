@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { getArticleDataSelector, getArticleErrorSelector, getIsArticleLoadingSelector } from '../../model/selectors';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
@@ -15,6 +14,8 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleDetailText } from '../ArticleDetailtsText';
 import { ArticleDetailCode } from '../ArticleDetailtsCode';
 import { ArticleDetailImage } from '../ArticleDetailtsImage';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface ArticleDetailtProps {
 	id?: string;

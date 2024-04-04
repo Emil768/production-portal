@@ -18,11 +18,12 @@ import {
 	getIsArticlesViewSelector,
 } from '../../model/selectors';
 import { OrderType } from '@/shared/types/articles';
-import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { Input, InputTheme } from '@/shared/ui/Input/Input';
 import { fetchArticlesPageData } from '../../model/services/fetchArticlesData';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface ArticlePageFiltersProps {
 	className?: string;
