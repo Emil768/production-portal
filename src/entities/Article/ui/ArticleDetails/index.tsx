@@ -1,11 +1,7 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
-import {
-	getArticleDataSelector,
-	getArticleErrorSelector,
-	getIsArticleLoadingSelector,
-} from '@/entities/Article/model/selectors';
+import { getArticleDataSelector, getArticleErrorSelector, getIsArticleLoadingSelector } from '../../model/selectors';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';

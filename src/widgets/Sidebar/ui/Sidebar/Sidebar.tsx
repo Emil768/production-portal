@@ -2,7 +2,7 @@ import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Image } from '@/shared/ui/Image/Image';
 import { useAppSelector } from '@/app/providers/ReduxProvider/config/store';
-import { getSidebarItemsListSelector } from '@/widgets/Sidebar/model/selectors';
+import { getSidebarItemsListSelector } from '../../model/selectors';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LangSwitcher } from '@/widgets/LangSwitcher/LangSwitcher';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';

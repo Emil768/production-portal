@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice';
+import { articlesPageActions } from '../../model/slice/articlePageSlice';
 import {
 	ArticleSortField,
 	ArticleSortSelector,
@@ -16,11 +16,11 @@ import {
 	getArticlesOrderDataSelector,
 	getArticlesSearchSelector,
 	getIsArticlesViewSelector,
-} from '@/pages/ArticlesPage/model/selectors';
+} from '../../model/selectors';
 import { OrderType } from '@/shared/types/articles';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { Input, InputTheme } from '@/shared/ui/Input/Input';
-import { fetchArticlesPageData } from '@/pages/ArticlesPage/model/services/fetchArticlesData';
+import { fetchArticlesPageData } from '../../model/services/fetchArticlesData';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
 

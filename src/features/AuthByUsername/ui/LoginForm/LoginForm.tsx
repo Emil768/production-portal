@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { loginByUserName } from '@/features/AuthByUsername/model/services/LoginByUsername';
+import { loginByUserName } from '../../model/services/LoginByUsername';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice';
+import { loginActions, loginReducer } from '../../model/slice';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { getInitialValuesLoginSelector } from '@/features/AuthByUsername/model/selectors';
+import { getInitialValuesLoginSelector } from '../../model/selectors';
 import { Input, InputTheme } from '@/shared/ui/Input/Input';
 import cls from './LoginForm.module.scss';
 

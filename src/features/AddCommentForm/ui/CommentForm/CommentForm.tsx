@@ -1,11 +1,11 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { commentFormReducer, commentFormSActions } from '@/features/AddCommentForm/model/slice';
+import { commentFormReducer, commentFormSActions } from '../../model/slice';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { useAppDispatch, useAppSelector } from '@/app/providers/ReduxProvider/config/store';
-import { getCommentFormTextSelector } from '@/features/AddCommentForm/model/selectors';
+import { getCommentFormTextSelector } from '../../model/selectors';
 import cls from './CommentForm.module.scss';
 
 const reducers: ReducersList = {

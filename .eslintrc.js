@@ -13,7 +13,7 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'murahas-plugin'],
 	rules: {
 		indent: 'off',
 		'max-len': ['warn', 180, 2, { ignoreUrls: true, ignorePattern: '^import' }],
@@ -44,6 +44,7 @@ module.exports = {
 		'react/jsx-wrap-multilines': 'off',
 		'operator-linebreak': 'off',
 		'react/no-array-index-key': 'off',
+		'murahas-plugin/path-checker': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,

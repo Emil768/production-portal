@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleCodeBlock } from '@/entities/Article/model/types/article';
+import { ArticleCodeBlock } from '../../model/types/article';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import CheckIcon from '@/shared/assets/icons/check.svg';
 import { Image } from '@/shared/ui/Image/Image';
