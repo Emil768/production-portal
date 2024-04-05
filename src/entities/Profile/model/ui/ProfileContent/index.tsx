@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
-import { Input, InputTheme } from '@/shared/ui/Input/Input';
+import { Input, InputTheme } from '@/shared/ui/Input';
 import { getIsReadOnlySelector, getValidationErrorsSelector } from '../../selectors/selectors';
 import { Profile } from '../../types/profile';
 import { profileActions } from '../../slice/profileSlice';

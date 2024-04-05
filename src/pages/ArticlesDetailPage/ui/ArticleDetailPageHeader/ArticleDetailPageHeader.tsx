@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getIsArticleEditSelector } from '../../model/selectors/articles';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/AppLink';
 import { getArticleDataSelector } from '@/entities/Article';
 import cls from './ArticleDetailPageHeader.module.scss';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';

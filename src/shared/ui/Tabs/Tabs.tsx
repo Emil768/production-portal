@@ -11,11 +11,11 @@ interface TabsProps {
 	className?: string;
 	tabs: TabItem[];
 	type: string;
-	onTabClick: (tabs: string) => void;
+	onTabClick: (tabs: TabItem) => void;
 }
 
 export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
-	const onTabChange = (value: string) => () => {
+	const onTabChange = (value: TabItem) => () => {
 		onTabClick(value);
 	};
 	return (
@@ -24,7 +24,7 @@ export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
 				return (
 					<div
 						className={[cls.tab, type === item.value && cls.active].join(' ').trim()}
-						onClick={onTabChange(item.value)}
+						onClick={onTabChange(item)}
 						key={item.value}
 					>
 						{item.content}

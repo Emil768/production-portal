@@ -4,7 +4,7 @@ import { useCallback, useEffect } from 'react';
 import { ArticleList, ArticlesDetail } from '@/entities/Article';
 import { Page } from '@/widgets/Page/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { CommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';

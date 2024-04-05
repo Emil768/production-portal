@@ -18,7 +18,7 @@ import {
 	getIsArticlesViewSelector,
 } from '../../model/selectors';
 import { OrderType } from '@/shared/types/articles';
-import { Input, InputTheme } from '@/shared/ui/Input/Input';
+import { Input, InputTheme } from '@/shared/ui/Input';
 import { fetchArticlesPageData } from '../../model/services/fetchArticlesData';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Loader } from '@/shared/ui/Loader';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import cls from './ProfileCard.module.scss';
 import { ProfileHeader } from '../ProfileHeader';
 import { ProfileContent } from '../ProfileContent';

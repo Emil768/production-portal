@@ -1,7 +1,7 @@
 import { MouseEvent, memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Image } from '@/shared/ui/Image/Image';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Image } from '@/shared/ui/Image';
+import { Button, ThemeButton } from '@/shared/ui/Button';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { NotificationList } from '@/entities/Notification';
 import cls from './NotificationButton.module.scss';

@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleCodeBlock } from '../../model/types/article';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import CheckIcon from '@/shared/assets/icons/check.svg';
-import { Image } from '@/shared/ui/Image/Image';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Image } from '@/shared/ui/Image';
+import { Button, ThemeButton } from '@/shared/ui/Button';
 import cls from './ArticleDetailCode.module.scss';
 
 interface ArticleDetailCodeProps {

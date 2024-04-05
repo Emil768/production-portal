@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { TabItem, Tabs } from '@/shared/ui/Tabs';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleType } from '../../model/consts';
 
@@ -36,8 +36,8 @@ export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSor
 		];
 	}, []);
 
-	const onTabChange = useCallback((value: ArticleType) => {
-		onTabClick(value);
+	const onTabChange = useCallback((tab: TabItem) => {
+		onTabClick(tab.value as ArticleType);
 	}, []);
 
 	return (

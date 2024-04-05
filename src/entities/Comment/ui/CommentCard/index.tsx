@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Comment } from '../../model/types';
 import cls from './CommentCard.module.scss';
 

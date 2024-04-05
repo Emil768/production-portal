@@ -1,10 +1,10 @@
 import { memo, useMemo, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Image } from '@/shared/ui/Image/Image';
+import { Image } from '@/shared/ui/Image';
 import { getSidebarItemsListSelector } from '../../model/selectors';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher/LangSwitcher';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Button, ThemeButton } from '@/shared/ui/Button';
 import MenuIcon from '@/shared/assets/icons/menu.svg';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SideBarItem/SideBarItem';

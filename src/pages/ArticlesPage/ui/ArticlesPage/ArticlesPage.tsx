@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page/Page';
 import { ArticleList } from '@/entities/Article';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlePageSlice';

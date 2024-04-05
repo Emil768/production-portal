@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import MenuIcon from '@/shared/assets/icons/menu.svg';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { Image } from '@/shared/ui/Image/Image';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Image } from '@/shared/ui/Image';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '../../model/consts';
 import cls from './ArticleViewSelector.module.scss';
