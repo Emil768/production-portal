@@ -1,21 +1,21 @@
-import { ReactNode, memo } from 'react';
+import { ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Tabs.module.scss';
 
-export interface TabItem {
-	value: string;
+export interface TabItem<T extends string> {
+	value: T;
 	content: ReactNode;
 }
 
-interface TabsProps {
+interface TabsProps<T extends string> {
 	className?: string;
-	tabs: TabItem[];
+	tabs: TabItem<T>[];
 	type: string;
-	onTabClick: (tabs: TabItem) => void;
+	onTabClick: (tabs: T) => void;
 }
 
-export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
-	const onTabChange = (value: TabItem) => () => {
+export const Tabs = <T extends string>({ tabs, onTabClick, className, type }: TabsProps<T>) => {
+	const onTabChange = (value: T) => () => {
 		onTabClick(value);
 	};
 	return (
@@ -24,7 +24,7 @@ export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
 				return (
 					<div
 						className={[cls.tab, type === item.value && cls.active].join(' ').trim()}
-						onClick={onTabChange(item)}
+						onClick={onTabChange(item.value)}
 						key={item.value}
 					>
 						{item.content}
@@ -33,4 +33,4 @@ export const Tabs = memo(({ tabs, onTabClick, className, type }: TabsProps) => {
 			})}
 		</div>
 	);
-});
+};

@@ -15,7 +15,7 @@ interface ArticleSortSelectorProps {
 export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSortSelectorProps) => {
 	const { t } = useTranslation();
 
-	const tabsOptions = useMemo<TabItem[]>(() => {
+	const tabsOptions = useMemo<TabItem<ArticleType>[]>(() => {
 		return [
 			{
 				content: `${t('Все')}`,
@@ -36,8 +36,8 @@ export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSor
 		];
 	}, []);
 
-	const onTabChange = useCallback((tab: TabItem) => {
-		onTabClick(tab.value as ArticleType);
+	const onTabChange = useCallback((value: ArticleType) => {
+		onTabClick(value);
 	}, []);
 
 	return (

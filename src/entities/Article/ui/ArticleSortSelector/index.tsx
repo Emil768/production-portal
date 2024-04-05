@@ -18,7 +18,7 @@ export const ArticleSortSelector = memo(
 	({ className, sort, order, onOrderChange, onSortChange }: ArticleSortSelectorProps) => {
 		const { t } = useTranslation('articles');
 
-		const orderOptions = useMemo<SelectOption[]>(() => {
+		const orderOptions = useMemo<SelectOption<OrderType>[]>(() => {
 			return [
 				{
 					content: `${t('возрастанию')}`,
@@ -31,7 +31,7 @@ export const ArticleSortSelector = memo(
 			];
 		}, []);
 
-		const sortOptions = useMemo<SelectOption[]>(() => {
+		const sortOptions = useMemo<SelectOption<ArticleSortField>[]>(() => {
 			return [
 				{
 					content: `${t('дате')}`,
@@ -49,15 +49,15 @@ export const ArticleSortSelector = memo(
 		}, []);
 
 		const onChangeSortHandler = useCallback(
-			(sort: string) => {
-				onSortChange(sort as ArticleSortField);
+			(sort: ArticleSortField) => {
+				onSortChange(sort);
 			},
 			[onSortChange],
 		);
 
 		const onChangeOrderHandler = useCallback(
-			(order: string) => {
-				onOrderChange(order as OrderType);
+			(order: OrderType) => {
+				onOrderChange(order);
 			},
 			[onOrderChange],
 		);
