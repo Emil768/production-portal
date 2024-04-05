@@ -45,6 +45,7 @@ module.exports = {
 		'operator-linebreak': 'off',
 		'react/no-array-index-key': 'off',
 		'murahas-plugin/path-checker': ['error', { alias: '@' }],
+		'murahas-plugin/public-api-imports': ['error', { alias: '@' }],
 		'murahas-plugin/fsd-imports': [
 			'error',
 			{

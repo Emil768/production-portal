@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { UserRoles } from '@/entities/User';
-import { getAuthDataSelector, getUserRolesSelector } from '@/entities/User/model/selectors/selectors';
+import { UserRoles, getAuthDataSelector, getUserRolesSelector } from '@/entities/User';
+
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface RequireAuthProps {

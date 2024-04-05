@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getAuthDataSelector } from '@/entities/User/model/selectors/selectors';
+import { getAuthDataSelector } from '@/entities/User';
 import HomeIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import UserIcon from '@/shared/assets/icons/user.svg';

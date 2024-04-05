@@ -1,9 +1,9 @@
 import i18next from 'i18next';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
-import { getArticleDataSelector } from '@/entities/Article/model/selectors';
+import { getArticleDataSelector } from '@/entities/Article';
 import { Comment } from '@/entities/Comment';
-import { getAuthDataSelector } from '@/entities/User/model/selectors/selectors';
+import { getAuthDataSelector } from '@/entities/User';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId';
 
 export const fetchCommentFormByArticle = createAsyncThunk<Comment, string, ExtraThunkProps<string>>(

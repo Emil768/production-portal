@@ -2,12 +2,12 @@ import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } f
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ProfileSchema } from '@/entities/Profile';
-import { UserSchema } from '@/entities/User/model/types';
-import { CommentFormSchema } from '@/features/AddCommentForm/model/types';
-import { LoginSchema } from '@/features/AuthByUsername/ui';
+import { UserSchema } from '@/entities/User';
+import { CommentFormSchema } from '@/features/AddCommentForm';
+import { LoginSchema } from '@/features/AuthByUsername';
 import { UISchema } from '@/features/UI';
 import { ArticleDetailsPageSchema } from '@/pages/ArticlesDetailPage';
-import { ArticlePageSchema } from '@/pages/ArticlesPage/model/types/articlePageSchema';
+import { ArticlePageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StoreSchema {

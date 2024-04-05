@@ -5,7 +5,7 @@ import { ArticleViewSelector } from './ui/ArticleViewSelector';
 import { articleReducer, articleActions } from './model/slice';
 import { ArticleSortSelector } from './ui/ArticleSortSelector';
 import { ArticleTypeTabs } from './ui/ArticleTypeTabs';
-import { getArticleDataSelector } from './model/selectors';
+import { getArticleDataSelector, getIsArticleLoadingSelector } from './model/selectors';
 
 export {
 	ArticlesDetail,
@@ -17,6 +17,7 @@ export {
 	ArticleSortSelector,
 	ArticleTypeTabs,
 	getArticleDataSelector,
+	getIsArticleLoadingSelector,
 };
 
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';

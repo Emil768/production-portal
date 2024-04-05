@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Text } from '@/shared/ui/Text';
-import { getAuthDataSelector } from '@/entities/User/model/selectors/selectors';
+import { getAuthDataSelector } from '@/entities/User';
 import { profileActions } from '../../slice/profileSlice';
 import { getIsReadOnlySelector, getProfileDataSelector } from '../../selectors/selectors';
 import { updateProfile } from '../../services/updateProfileData';

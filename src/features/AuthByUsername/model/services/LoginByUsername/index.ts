@@ -1,19 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import i18next from 'i18next';
 import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchema';
-import { userActions } from '@/entities/User/model/slice';
-import { User } from '@/entities/User/model/types';
+import { userActions, UserType } from '@/entities/User';
 
 interface LoginByUsernameProps {
 	username: string;
 	password: string;
 }
 
-export const loginByUserName = createAsyncThunk<User, LoginByUsernameProps, ExtraThunkProps<string>>(
+export const loginByUserName = createAsyncThunk<UserType, LoginByUsernameProps, ExtraThunkProps<string>>(
 	'login/loginByUsername',
 	async (authData, { extra, dispatch, rejectWithValue }) => {
 		try {
-			const response = await extra.api.post<User>('/login', authData);
+			const response = await extra.api.post<UserType>('/login', authData);
 
 			dispatch(userActions.setUser(response.data));
 			localStorage.setItem('user', JSON.stringify(response.data));

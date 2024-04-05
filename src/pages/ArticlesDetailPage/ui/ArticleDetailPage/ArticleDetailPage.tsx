@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
-import { ArticleList, ArticlesDetail } from '@/entities/Article';
-import { Page } from '@/widgets/Page/Page';
+import { ArticleList, ArticlesDetail, getIsArticleLoadingSelector } from '@/entities/Article';
+import { Page } from '@/widgets/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 import { CommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { DynamicReducerWrapper, ReducersList } from '@/shared/lib/DynamicReducerWrapper/DynamicReducerWrapper';
-import { getIsArticleLoadingSelector } from '@/entities/Article/model/selectors';
+
 import { ArticleDetailPageReducer } from '../../model/slice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import cls from './ArticlesDetailPage.module.scss';
