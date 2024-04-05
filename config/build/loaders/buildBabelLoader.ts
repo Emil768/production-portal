@@ -1,5 +1,3 @@
-import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
-
 interface BuildBabelLoaderProps {
 	isTsx?: boolean;
 }

@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 
 interface useModalProps {
 	isOpen: boolean;

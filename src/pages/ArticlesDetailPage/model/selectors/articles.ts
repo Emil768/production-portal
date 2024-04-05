@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
 import { getArticleDataSelector } from '@/entities/Article';
 import { getAuthDataSelector } from '@/entities/User';
 

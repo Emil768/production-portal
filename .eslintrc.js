@@ -13,7 +13,7 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'i18next', 'murahas-plugin'],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'murahas-plugin', 'unused-imports'],
 	rules: {
 		indent: 'off',
 		'max-len': ['warn', 180, 2, { ignoreUrls: true, ignorePattern: '^import' }],
@@ -52,6 +52,7 @@ module.exports = {
 				ignoreImportPatterns: ['**/ReduxProvider/**'],
 			},
 		],
+		'unused-imports/no-unused-imports': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,
