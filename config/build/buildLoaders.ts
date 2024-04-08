@@ -3,14 +3,14 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders({ isDev, isProd }: BuildOptions): webpack.RuleSetRule[] {
 	const svgLoader = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack'],
 	};
 
-	const babelLoader = buildBabelLoader({ isTsx: false });
-	const tsxBabelLoader = buildBabelLoader({ isTsx: true });
+	const babelLoader = buildBabelLoader({ isTsx: false, isProd, isDev });
+	const tsxBabelLoader = buildBabelLoader({ isTsx: true, isProd, isDev });
 	const cssLoader = buildCssLoader(isDev);
 
 	// Если не используем тайпскрипт - нужен babel-loader
