@@ -5,6 +5,7 @@ import { AppLink } from '@/shared/ui/AppLink';
 import { getArticleDataSelector } from '@/entities/Article';
 import cls from './ArticleDetailPageHeader.module.scss';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { getArticleEditRoute } from '@/shared/consts/router';
 
 interface ArticleDetailPageHeaderProps {
 	className?: string;
@@ -18,7 +19,7 @@ export const ArticleDetailPageHeader = ({ className }: ArticleDetailPageHeaderPr
 	return (
 		<div className={classNames(cls.ArticlePageFilters, {}, [className])}>
 			<AppLink to="/articles">{t('Назад')}</AppLink>
-			{isEdit && <AppLink to={`/article/${article?.id}/edit`}>{t('Редактировать')}</AppLink>}
+			{isEdit && <AppLink to={getArticleEditRoute(article?.id || '')}>{t('Редактировать')}</AppLink>}
 		</div>
 	);
 };

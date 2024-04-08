@@ -7,52 +7,62 @@ import { ArticlesDetailtPage } from '@/pages/ArticlesDetailPage';
 import { ArticlesEditPage } from '@/pages/ArticleEditPage';
 import { AdminPagePage } from '@/pages/AdminPage';
 import { AppRoutes } from '@/shared/types/router';
-import { RoutePath } from '@/shared/consts/router';
+import {
+	getAboutRoute,
+	getAdminRoute,
+	getArticleCreateRoute,
+	getArticleDetailRoute,
+	getArticleEditRoute,
+	getArticlesRoute,
+	getMainRoute,
+	getNotFoundRoute,
+	getProfileRoute,
+} from '@/shared/consts/router';
 import { UserRoles } from '@/entities/User';
 import { AutRouterProps } from '../types/routeConfig/routeConfig';
 
 export const routeConfig: Record<AppRoutes, AutRouterProps> = {
 	[AppRoutes.ADMIN]: {
-		path: RoutePath.admin,
+		path: getAdminRoute(),
 		element: <AdminPagePage />,
 		isAuth: true,
 		roles: [UserRoles.ADMIN, UserRoles.MAGAGER],
 	},
 	[AppRoutes.MAIN]: {
-		path: RoutePath.main,
+		path: getMainRoute(),
 		element: <MainPage />,
 	},
 	[AppRoutes.ABOUT]: {
-		path: RoutePath.about,
+		path: getAboutRoute(),
 		element: <AboutPage />,
 	},
 	[AppRoutes.PROFILE]: {
-		path: `${RoutePath.profile}:id`,
+		path: getProfileRoute(':id'),
 		element: <ProfilePage />,
 		isAuth: true,
 	},
 	[AppRoutes.ARTICLES]: {
-		path: RoutePath.articles,
+		path: getArticlesRoute(),
 		element: <ArticlesPage />,
 		isAuth: true,
 	},
 	[AppRoutes.ARTICLES_CREATE]: {
-		path: RoutePath.article_create,
+		path: getArticleCreateRoute(),
 		element: <ArticlesEditPage />,
 		isAuth: true,
 	},
 	[AppRoutes.ARTICLES_EDIT]: {
-		path: RoutePath.article_edit,
+		path: getArticleEditRoute(':id'),
 		element: <ArticlesEditPage />,
 		isAuth: true,
 	},
 	[AppRoutes.ARTICLES_DETAIL]: {
-		path: `${RoutePath.article_detail}:id`,
+		path: getArticleDetailRoute(':id'),
 		element: <ArticlesDetailtPage />,
 		isAuth: true,
 	},
 	[AppRoutes.NOT_FOUND]: {
-		path: RoutePath.not_found,
+		path: getNotFoundRoute(),
 		element: <NotFoundPage />,
 	},
 };

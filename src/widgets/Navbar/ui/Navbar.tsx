@@ -3,7 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { LoginModal } from '@/features/AuthByUsername';
 import { Button, ThemeButton } from '@/shared/ui/Button';
-import { userActions, getAuthDataSelector, getIsUserAdminRoleSelector, getIsUserManagerRoleSelector } from '@/entities/User';
+import {
+	userActions,
+	getAuthDataSelector,
+	getIsUserAdminRoleSelector,
+	getIsUserManagerRoleSelector,
+} from '@/entities/User';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { NotificationButton } from '@/features/NotificationButton';
@@ -11,6 +16,7 @@ import { NotificationButton } from '@/features/NotificationButton';
 import cls from './Navbar.module.scss';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { getProfileRoute } from '@/shared/consts/router';
 
 interface NavbarProps {
 	className?: string;
@@ -64,7 +70,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 									</li>
 								)}
 								<li className={cls.menuItem}>
-									<AppLink to={`/profile/${user.id}`} theme={AppLinkTheme.SECONDARY}>
+									<AppLink to={getProfileRoute(user.id)} theme={AppLinkTheme.SECONDARY}>
 										{t('Профиль')}
 									</AppLink>
 								</li>

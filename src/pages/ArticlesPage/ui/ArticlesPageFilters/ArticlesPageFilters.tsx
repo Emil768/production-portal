@@ -2,14 +2,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { articlesPageActions } from '../../model/slice/articlePageSlice';
-import {
-	ArticleSortField,
-	ArticleSortSelector,
-	ArticleType,
-	ArticleTypeTabs,
-	ArticleView,
-	ArticleViewSelector,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import {
 	getArticleSortDataSelector,
 	getArticleTypeDataSelector,
@@ -24,6 +17,9 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import cls from './ArticlesPageFilters.module.scss';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlePageFiltersProps {
 	className?: string;

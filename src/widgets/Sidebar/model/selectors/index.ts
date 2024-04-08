@@ -7,12 +7,12 @@ import UserLightIcon from '@/shared/assets/icons/user_light.svg';
 import HomeLightIcon from '@/shared/assets/icons/home_light.svg';
 import AboutLightIcon from '@/shared/assets/icons/about_light.svg';
 import { SidebarItemType } from '../types';
-import { RoutePath } from '@/shared/consts/router';
+import { getAboutRoute, getArticlesRoute, getMainRoute, getProfileRoute } from '@/shared/consts/router';
 
 export const getSidebarItemsListSelector = createSelector(getAuthDataSelector, (userAuth) => {
 	const sidebarItemsList: SidebarItemType[] = [
 		{
-			path: RoutePath.main,
+			path: getMainRoute(),
 			icon: {
 				light: HomeLightIcon,
 				dark: HomeIcon,
@@ -20,7 +20,7 @@ export const getSidebarItemsListSelector = createSelector(getAuthDataSelector, (
 			text: 'Главная',
 		},
 		{
-			path: RoutePath.about,
+			path: getAboutRoute(),
 			icon: {
 				light: AboutLightIcon,
 				dark: AboutIcon,
@@ -31,7 +31,7 @@ export const getSidebarItemsListSelector = createSelector(getAuthDataSelector, (
 	if (userAuth) {
 		sidebarItemsList.push(
 			{
-				path: RoutePath.profile + userAuth.id,
+				path: getProfileRoute('') + userAuth.id,
 				icon: {
 					light: UserLightIcon,
 					dark: UserIcon,
@@ -40,7 +40,7 @@ export const getSidebarItemsListSelector = createSelector(getAuthDataSelector, (
 				isAuth: true,
 			},
 			{
-				path: RoutePath.articles,
+				path: getArticlesRoute(),
 				icon: {
 					light: UserLightIcon,
 					dark: UserIcon,
