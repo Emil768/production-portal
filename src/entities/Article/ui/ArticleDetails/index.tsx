@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { getArticleDataSelector, getArticleErrorSelector, getIsArticleLoadingSelector } from '../../model/selectors';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { Skeleton } from '@/shared/ui/Skeleton';
@@ -14,7 +15,6 @@ import cls from './ArticleDetails.module.scss';
 import { ArticleDetailText } from '../ArticleDetailtsText';
 import { ArticleDetailCode } from '../ArticleDetailtsCode';
 import { ArticleDetailImage } from '../ArticleDetailtsImage';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector';
 
 interface ArticleDetailtProps {
@@ -27,7 +27,7 @@ const reducer: ReducersList = {
 
 export const ArticlesDetail = memo(({ id }: ArticleDetailtProps) => {
 	const { t } = useTranslation('articles');
-	const dispatch = useAppDispatch();
+	const dispatch = useDispatch();
 	const error = useAppSelector(getArticleErrorSelector);
 	const isLoading = useAppSelector(getIsArticleLoadingSelector);
 	const articles = useAppSelector(getArticleDataSelector);

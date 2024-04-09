@@ -17,7 +17,6 @@ const ProfilePage = () => {
 
 	useEffect(() => {
 		if (id) {
-			// @ts-ignore
 			dispatch(fetchProfileData(id));
 		}
 	}, []);

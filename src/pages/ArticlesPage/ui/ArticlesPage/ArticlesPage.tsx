@@ -31,12 +31,10 @@ const ArticlesPage = () => {
 	const [searchParams] = useSearchParams();
 
 	const onLoadNextPart = useCallback(() => {
-		// @ts-ignore
 		dispatch(fetchNextLoadData());
 	}, [dispatch]);
 
 	useEffect(() => {
-		// @ts-ignore
 		dispatch(initFetchArticlesData(searchParams));
 	}, [dispatch]);
 

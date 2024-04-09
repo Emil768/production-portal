@@ -15,11 +15,10 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 
 	const reducerManager = createReducerManager(rootReducers);
 
-	const store = configureStore<StoreSchema>({
+	const store = configureStore({
 		reducer: reducerManager.reduce as Reducer<CombinedState<StoreSchema>>,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
-		// @ts-ignore
 		middleware: (getDefaultMiddleware) =>
 			getDefaultMiddleware({
 				thunk: {
@@ -36,4 +35,3 @@ export function createReduxStore({ initialState }: ReduxStoreProps) {
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
-// export type RootState = ReturnType<typeof createReduxStore>['getState'];

@@ -33,7 +33,6 @@ export function ProfileHeader({ className }: ProfileCardProps) {
 	};
 
 	const onSaveEdit = () => {
-		// @ts-ignore
 		dispatch(updateProfile());
 	};
 
