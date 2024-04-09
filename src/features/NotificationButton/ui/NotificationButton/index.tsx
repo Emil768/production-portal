@@ -7,28 +7,35 @@ import { NotificationList } from '@/entities/Notification';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationListProps {
-	className?: string;
+    className?: string;
 }
 
-export const NotificationButton = memo(({ className }: NotificationListProps) => {
-	const [active, setActive] = useState(false);
+export const NotificationButton = memo(
+    ({ className }: NotificationListProps) => {
+        const [active, setActive] = useState(false);
 
-	const onToggleMenu = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-		setActive((prev) => !prev);
-		e.stopPropagation();
-	}, []);
+        const onToggleMenu = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+            setActive((prev) => !prev);
+            e.stopPropagation();
+        }, []);
 
-	return (
-		<div className={classNames(cls.NotificationButton, {}, [className])}>
-			<Button theme={ThemeButton.CLEAR} onClick={onToggleMenu}>
-				<Image sourse={<NotificationIcon />} className={cls.image} />
-			</Button>
+        return (
+            <div
+                className={classNames(cls.NotificationButton, {}, [className])}
+            >
+                <Button theme={ThemeButton.CLEAR} onClick={onToggleMenu}>
+                    <Image
+                        sourse={<NotificationIcon />}
+                        className={cls.image}
+                    />
+                </Button>
 
-			{active ? (
-				<div className={cls.popup}>
-					<NotificationList />
-				</div>
-			) : null}
-		</div>
-	);
-});
+                {active ? (
+                    <div className={cls.popup}>
+                        <NotificationList />
+                    </div>
+                ) : null}
+            </div>
+        );
+    },
+);

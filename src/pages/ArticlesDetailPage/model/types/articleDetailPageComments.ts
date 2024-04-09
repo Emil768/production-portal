@@ -1,6 +1,6 @@
 export interface ArticleDetailsCommentsSchema {
-	isLoading?: boolean;
-	error?: string;
-	ids: [];
-	entities: {};
+    isLoading?: boolean;
+    error?: string;
+    ids: [];
+    entities: {};
 }

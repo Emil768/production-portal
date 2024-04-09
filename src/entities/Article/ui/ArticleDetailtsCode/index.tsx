@@ -8,39 +8,45 @@ import { Button, ThemeButton } from '@/shared/ui/Button';
 import cls from './ArticleDetailCode.module.scss';
 
 interface ArticleDetailCodeProps {
-	className?: string;
-	block: ArticleCodeBlock;
+    className?: string;
+    block: ArticleCodeBlock;
 }
 
-export const ArticleDetailCode = memo(({ className, block }: ArticleDetailCodeProps) => {
-	const [isCopied, setIsCopied] = useState(false);
+export const ArticleDetailCode = memo(
+    ({ className, block }: ArticleDetailCodeProps) => {
+        const [isCopied, setIsCopied] = useState(false);
 
-	const copyCodeToClipboard = () => {
-		navigator.clipboard
-			.writeText(block.code)
-			.then(() => {
-				setIsCopied(true);
-				setTimeout(() => {
-					setIsCopied(false);
-				}, 3000);
-			})
-			.catch((error) => {
-				console.error('Failed to copy:', error);
-			});
-	};
+        const copyCodeToClipboard = () => {
+            navigator.clipboard
+                .writeText(block.code)
+                .then(() => {
+                    setIsCopied(true);
+                    setTimeout(() => {
+                        setIsCopied(false);
+                    }, 3000);
+                })
+                .catch((error) => {
+                    console.error('Failed to copy:', error);
+                });
+        };
 
-	return (
-		<div className={classNames(cls.ArticleDetailCode, {}, [className])}>
-			<pre className={cls.code}>
-				{isCopied ? (
-					<Image sourse={<CheckIcon className={cls.icon} />} />
-				) : (
-					<Button onClick={copyCodeToClipboard} className={cls.icon} theme={ThemeButton.CLEAR}>
-						<Image sourse={<CopyIcon />} />
-					</Button>
-				)}
-				<code>{block.code}</code>
-			</pre>
-		</div>
-	);
-});
+        return (
+            <div className={classNames(cls.ArticleDetailCode, {}, [className])}>
+                <pre className={cls.code}>
+                    {isCopied ? (
+                        <Image sourse={<CheckIcon className={cls.icon} />} />
+                    ) : (
+                        <Button
+                            onClick={copyCodeToClipboard}
+                            className={cls.icon}
+                            theme={ThemeButton.CLEAR}
+                        >
+                            <Image sourse={<CopyIcon />} />
+                        </Button>
+                    )}
+                    <code>{block.code}</code>
+                </pre>
+            </div>
+        );
+    },
+);

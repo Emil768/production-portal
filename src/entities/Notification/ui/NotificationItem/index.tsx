@@ -5,16 +5,18 @@ import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types';
 
 interface NotificationItemProps {
-	className?: string;
-	notification: Notification;
+    className?: string;
+    notification: Notification;
 }
 
-export const NotificationItem = memo(({ className, notification }: NotificationItemProps) => {
-	return (
-		<div className={classNames(cls.NotificationItem, {}, [className])}>
-			<Text title={notification.title} />
+export const NotificationItem = memo(
+    ({ className, notification }: NotificationItemProps) => {
+        return (
+            <div className={classNames(cls.NotificationItem, {}, [className])}>
+                <Text title={notification.title} />
 
-			<Text text={notification.description} />
-		</div>
-	);
-});
+                <Text text={notification.description} />
+            </div>
+        );
+    },
+);

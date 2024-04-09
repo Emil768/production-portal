@@ -10,28 +10,28 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import './styles/index.scss';
 
 function App() {
-	const { theme } = useTheme();
-	const dispatch = useAppDispatch();
-	const isAuthInit = useAppSelector(getAuthInitSelector);
+    const { theme } = useTheme();
+    const dispatch = useAppDispatch();
+    const isAuthInit = useAppSelector(getAuthInitSelector);
 
-	useEffect(() => {
-		dispatch(userActions.initUser());
+    useEffect(() => {
+        dispatch(userActions.initUser());
 
-		document.body.className = theme;
-	}, [dispatch]);
+        document.body.className = theme;
+    }, [dispatch]);
 
-	return (
-		<div className={classNames('app', {}, [])}>
-			<Suspense fallback="">
-				<Navbar />
+    return (
+        <div className={classNames('app', {}, [])}>
+            <Suspense fallback="">
+                <Navbar />
 
-				<div className="content-page">
-					<Sidebar />
-					{isAuthInit && <AppRouter />}
-				</div>
-			</Suspense>
-		</div>
-	);
+                <div className="content-page">
+                    <Sidebar />
+                    {isAuthInit && <AppRouter />}
+                </div>
+            </Suspense>
+        </div>
+    );
 }
 
 export default App;

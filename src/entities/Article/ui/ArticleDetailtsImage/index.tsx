@@ -7,26 +7,30 @@ import { Text, TextAlign } from '@/shared/ui/Text';
 import cls from './ArticleDetailImage.module.scss';
 
 interface ArticleDetailImageProps {
-	className?: string;
-	block: ArticleImageBlock;
+    className?: string;
+    block: ArticleImageBlock;
 }
 
-export const ArticleDetailImage = memo(({ className, block }: ArticleDetailImageProps) => {
-	const { t } = useTranslation();
-	const { id } = useParams<{ id: string }>();
+export const ArticleDetailImage = memo(
+    ({ className, block }: ArticleDetailImageProps) => {
+        const { t } = useTranslation();
+        const { id } = useParams<{ id: string }>();
 
-	if (!id) {
-		return (
-			<div>
-				<Text title={t('Статья не найдена')} />
-			</div>
-		);
-	}
+        if (!id) {
+            return (
+                <div>
+                    <Text title={t('Статья не найдена')} />
+                </div>
+            );
+        }
 
-	return (
-		<div className={classNames(cls.ArticleDetailImage, {}, [className])}>
-			<img src={block.src} alt={block.title} className={cls.image} />
-			<Text text={block.title} align={TextAlign.CENTER} />
-		</div>
-	);
-});
+        return (
+            <div
+                className={classNames(cls.ArticleDetailImage, {}, [className])}
+            >
+                <img src={block.src} alt={block.title} className={cls.image} />
+                <Text text={block.title} align={TextAlign.CENTER} />
+            </div>
+        );
+    },
+);

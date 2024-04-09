@@ -4,22 +4,26 @@ import { ExtraThunkProps } from '@/app/providers/ReduxProvider/config/storeSchem
 import { userActions, UserType } from '@/entities/User';
 
 interface LoginByUsernameProps {
-	username: string;
-	password: string;
+    username: string;
+    password: string;
 }
 
-export const loginByUserName = createAsyncThunk<UserType, LoginByUsernameProps, ExtraThunkProps<string>>(
-	'login/loginByUsername',
-	async (authData, { extra, dispatch, rejectWithValue }) => {
-		try {
-			const response = await extra.api.post<UserType>('/login', authData);
+export const loginByUserName = createAsyncThunk<
+    UserType,
+    LoginByUsernameProps,
+    ExtraThunkProps<string>
+>(
+    'login/loginByUsername',
+    async (authData, { extra, dispatch, rejectWithValue }) => {
+        try {
+            const response = await extra.api.post<UserType>('/login', authData);
 
-			dispatch(userActions.setUser(response.data));
-			localStorage.setItem('user', JSON.stringify(response.data));
+            dispatch(userActions.setUser(response.data));
+            localStorage.setItem('user', JSON.stringify(response.data));
 
-			return response.data;
-		} catch (e) {
-			return rejectWithValue(i18next.t('Неверный логин или пароль'));
-		}
-	},
+            return response.data;
+        } catch (e) {
+            return rejectWithValue(i18next.t('Неверный логин или пароль'));
+        }
+    },
 );

@@ -1,13 +1,19 @@
 import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
 
-export const getProfileDataSelector = (state: StoreSchema) => state?.profile?.data;
+export const getProfileDataSelector = (state: StoreSchema) =>
+    state?.profile?.data;
 
-export const getProfileFormDataSelector = (state: StoreSchema) => state?.profile?.formData;
+export const getProfileFormDataSelector = (state: StoreSchema) =>
+    state?.profile?.formData;
 
-export const getProfileErrorSelector = (state: StoreSchema) => state?.profile?.error;
+export const getProfileErrorSelector = (state: StoreSchema) =>
+    state?.profile?.error;
 
-export const getValidationErrorsSelector = (state: StoreSchema) => state?.profile?.validateErrors;
+export const getValidationErrorsSelector = (state: StoreSchema) =>
+    state?.profile?.validateErrors;
 
-export const getIsProfileLoadingSelector = (state: StoreSchema) => state?.profile?.isLoading;
+export const getIsProfileLoadingSelector = (state: StoreSchema) =>
+    state?.profile?.isLoading;
 
-export const getIsReadOnlySelector = (state: StoreSchema) => state?.profile?.readonly;
+export const getIsReadOnlySelector = (state: StoreSchema) =>
+    state?.profile?.readonly;

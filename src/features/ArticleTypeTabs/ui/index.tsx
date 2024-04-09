@@ -6,42 +6,44 @@ import cls from './ArticleTypeTabs.module.scss';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
-	className?: string;
-	type: ArticleType;
-	onTabClick: (type: ArticleType) => void;
+    className?: string;
+    type: ArticleType;
+    onTabClick: (type: ArticleType) => void;
 }
 
-export const ArticleTypeTabs = memo(({ className, type, onTabClick }: ArticleSortSelectorProps) => {
-	const { t } = useTranslation();
+export const ArticleTypeTabs = memo(
+    ({ className, type, onTabClick }: ArticleSortSelectorProps) => {
+        const { t } = useTranslation();
 
-	const tabsOptions = useMemo<TabItem<ArticleType>[]>(() => {
-		return [
-			{
-				content: `${t('Все')}`,
-				value: ArticleType.ALL,
-			},
-			{
-				content: ArticleType.IT,
-				value: ArticleType.IT,
-			},
-			{
-				content: `${t('Экономика')}`,
-				value: ArticleType.ECONOMICS,
-			},
-			{
-				content: `${t('Наука')}`,
-				value: ArticleType.SCIENCE,
-			},
-		];
-	}, []);
+        const tabsOptions = useMemo<TabItem<ArticleType>[]>(() => {
+            return [
+                {
+                    content: `${t('Все')}`,
+                    value: ArticleType.ALL,
+                },
+                {
+                    content: ArticleType.IT,
+                    value: ArticleType.IT,
+                },
+                {
+                    content: `${t('Экономика')}`,
+                    value: ArticleType.ECONOMICS,
+                },
+                {
+                    content: `${t('Наука')}`,
+                    value: ArticleType.SCIENCE,
+                },
+            ];
+        }, []);
 
-	const onTabChange = useCallback((value: ArticleType) => {
-		onTabClick(value);
-	}, []);
+        const onTabChange = useCallback((value: ArticleType) => {
+            onTabClick(value);
+        }, []);
 
-	return (
-		<div className={classNames(cls.ArticleTypeTabs, {}, [className])}>
-			<Tabs tabs={tabsOptions} type={type} onTabClick={onTabChange} />
-		</div>
-	);
-});
+        return (
+            <div className={classNames(cls.ArticleTypeTabs, {}, [className])}>
+                <Tabs tabs={tabsOptions} type={type} onTabClick={onTabChange} />
+            </div>
+        );
+    },
+);

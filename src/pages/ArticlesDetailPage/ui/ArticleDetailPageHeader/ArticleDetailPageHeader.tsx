@@ -8,18 +8,24 @@ import { useAppSelector } from '@/shared/lib/hooks/useAppSelector/useAppSelector
 import { getArticleEditRoute } from '@/shared/consts/router';
 
 interface ArticleDetailPageHeaderProps {
-	className?: string;
+    className?: string;
 }
 
-export const ArticleDetailPageHeader = ({ className }: ArticleDetailPageHeaderProps) => {
-	const { t } = useTranslation('articles');
-	const isEdit = useAppSelector(getIsArticleEditSelector);
-	const article = useAppSelector(getArticleDataSelector);
+export const ArticleDetailPageHeader = ({
+    className,
+}: ArticleDetailPageHeaderProps) => {
+    const { t } = useTranslation('articles');
+    const isEdit = useAppSelector(getIsArticleEditSelector);
+    const article = useAppSelector(getArticleDataSelector);
 
-	return (
-		<div className={classNames(cls.ArticlePageFilters, {}, [className])}>
-			<AppLink to="/articles">{t('Назад')}</AppLink>
-			{isEdit && <AppLink to={getArticleEditRoute(article?.id || '')}>{t('Редактировать')}</AppLink>}
-		</div>
-	);
+    return (
+        <div className={classNames(cls.ArticlePageFilters, {}, [className])}>
+            <AppLink to="/articles">{t('Назад')}</AppLink>
+            {isEdit && (
+                <AppLink to={getArticleEditRoute(article?.id || '')}>
+                    {t('Редактировать')}
+                </AppLink>
+            )}
+        </div>
+    );
 };

@@ -8,39 +8,50 @@ import cls from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
-	className?: string;
-	view?: ArticleView;
-	onViewClick: (view: ArticleView) => void;
+    className?: string;
+    view?: ArticleView;
+    onViewClick: (view: ArticleView) => void;
 }
 
 export const viewTypes = [
-	{
-		icon: GridIcon,
-		type: ArticleView.MULT,
-	},
-	{
-		icon: MenuIcon,
-		type: ArticleView.FULL,
-	},
+    {
+        icon: GridIcon,
+        type: ArticleView.MULT,
+    },
+    {
+        icon: MenuIcon,
+        type: ArticleView.FULL,
+    },
 ];
 
-export const ArticleViewSelector = memo(({ className, view, onViewClick }: ArticleViewSelectorProps) => {
-	const onClick = (view: ArticleView) => () => onViewClick(view);
+export const ArticleViewSelector = memo(
+    ({ className, view, onViewClick }: ArticleViewSelectorProps) => {
+        const onClick = (view: ArticleView) => () => onViewClick(view);
 
-	return (
-		<div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-			{viewTypes.map((item) => {
-				return (
-					<Button
-						key={item.type}
-						onClick={onClick(item.type)}
-						theme={ThemeButton.CLEAR}
-						className={classNames(cls.button, { [cls.noActive]: item.type !== view }, [])}
-					>
-						<Image sourse={<item.icon />} className={cls.image} />
-					</Button>
-				);
-			})}
-		</div>
-	);
-});
+        return (
+            <div
+                className={classNames(cls.ArticleViewSelector, {}, [className])}
+            >
+                {viewTypes.map((item) => {
+                    return (
+                        <Button
+                            key={item.type}
+                            onClick={onClick(item.type)}
+                            theme={ThemeButton.CLEAR}
+                            className={classNames(
+                                cls.button,
+                                { [cls.noActive]: item.type !== view },
+                                [],
+                            )}
+                        >
+                            <Image
+                                sourse={<item.icon />}
+                                className={cls.image}
+                            />
+                        </Button>
+                    );
+                })}
+            </div>
+        );
+    },
+);

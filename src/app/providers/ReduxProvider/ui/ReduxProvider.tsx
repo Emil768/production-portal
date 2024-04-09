@@ -4,14 +4,14 @@ import { createReduxStore } from '../config/store';
 import { StoreSchema } from '../config/storeSchema';
 
 interface ReduxProvierProps {
-	children: ReactNode;
-	initialState?: StoreSchema;
+    children: ReactNode;
+    initialState?: StoreSchema;
 }
 
 const ReduxProvier: FC<ReduxProvierProps> = ({ children, initialState }) => {
-	const store = createReduxStore({ initialState });
+    const store = createReduxStore({ initialState });
 
-	return <Provider store={store}>{children}</Provider>;
+    return <Provider store={store}>{children}</Provider>;
 };
 
 export default ReduxProvier;

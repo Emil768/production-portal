@@ -7,18 +7,23 @@ import { ReduxProvier } from '@/app/providers/ReduxProvider';
 import { StoreSchema } from '@/app/providers/ReduxProvider/config/storeSchema';
 
 export interface componentRenderOptions {
-	route?: string;
-	initialState?: StoreSchema;
+    route?: string;
+    initialState?: StoreSchema;
 }
 
-export function componentRender(component: ReactNode, options: componentRenderOptions = {}) {
-	const { route = '/', initialState } = options;
+export function componentRender(
+    component: ReactNode,
+    options: componentRenderOptions = {},
+) {
+    const { route = '/', initialState } = options;
 
-	return render(
-		<ReduxProvier initialState={initialState}>
-			<MemoryRouter initialEntries={[route]}>
-				<I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
-			</MemoryRouter>
-		</ReduxProvier>,
-	);
+    return render(
+        <ReduxProvier initialState={initialState}>
+            <MemoryRouter initialEntries={[route]}>
+                <I18nextProvider i18n={i18nForTests}>
+                    {component}
+                </I18nextProvider>
+            </MemoryRouter>
+        </ReduxProvier>,
+    );
 }

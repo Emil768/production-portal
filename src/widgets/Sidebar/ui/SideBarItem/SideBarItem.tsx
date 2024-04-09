@@ -10,30 +10,42 @@ import cls from './SidebarItem.module.scss';
 import { Theme } from '@/shared/consts/theme';
 
 interface SidebarItemProps {
-	className?: string;
-	item: SidebarItemType;
-	collapsed: boolean;
+    className?: string;
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
-export const SidebarItem = memo(({ className, item, collapsed }: SidebarItemProps) => {
-	const { t } = useTranslation();
-	const { theme } = useTheme();
-	const isAuth = useAppSelector(getAuthDataSelector);
+export const SidebarItem = memo(
+    ({ className, item, collapsed }: SidebarItemProps) => {
+        const { t } = useTranslation();
+        const { theme } = useTheme();
+        const isAuth = useAppSelector(getAuthDataSelector);
 
-	if (item.isAuth && !isAuth) {
-		return null;
-	}
+        if (item.isAuth && !isAuth) {
+            return null;
+        }
 
-	return (
-		<aside className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed }, [className])}>
-			<AppLink theme={AppLinkTheme.SECONDARY} to={item.path} className={cls.link}>
-				{theme === Theme.DARK ? (
-					<item.icon.dark className={cls.icon} />
-				) : (
-					<item.icon.light className={cls.icon} />
-				)}
-				<span className={cls.text}>{t(`${item.text}`)}</span>
-			</AppLink>
-		</aside>
-	);
-});
+        return (
+            <aside
+                className={classNames(
+                    cls.SidebarItem,
+                    { [cls.collapsed]: collapsed },
+                    [className],
+                )}
+            >
+                <AppLink
+                    theme={AppLinkTheme.SECONDARY}
+                    to={item.path}
+                    className={cls.link}
+                >
+                    {theme === Theme.DARK ? (
+                        <item.icon.dark className={cls.icon} />
+                    ) : (
+                        <item.icon.light className={cls.icon} />
+                    )}
+                    <span className={cls.text}>{t(`${item.text}`)}</span>
+                </AppLink>
+            </aside>
+        );
+    },
+);

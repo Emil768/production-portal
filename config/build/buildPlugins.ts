@@ -7,55 +7,60 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, isProd, api }: BuildOptions): webpack.WebpackPluginInstance[] {
-	const plugins = [
-		new HtmlWebpackPlugin({
-			template: paths.html,
-		}),
-		new webpack.ProgressPlugin(),
+export function buildPlugins({
+    paths,
+    isDev,
+    isProd,
+    api,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
+    const plugins = [
+        new HtmlWebpackPlugin({
+            template: paths.html,
+        }),
+        new webpack.ProgressPlugin(),
 
-		new webpack.DefinePlugin({
-			__IS_DEV__: JSON.stringify(isDev),
-			__API__: JSON.stringify(api),
-		}),
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(api),
+        }),
 
-		new CircularDependencyPlugin({
-			exclude: /node_modules/,
-			failOnError: true,
-		}),
-		new ForkTsCheckerWebpackPlugin({
-			typescript: {
-				diagnosticOptions: {
-					semantic: true,
-					syntactic: true,
-				},
-				mode: 'write-references',
-			},
-		}),
-	];
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }),
+    ];
 
-	if (isDev) {
-		plugins.push(new webpack.HotModuleReplacementPlugin());
-		plugins.push(
-			new BundleAnalyzerPlugin({
-				openAnalyzer: false,
-			}),
-		);
-	}
+    if (isDev) {
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(
+            new BundleAnalyzerPlugin({
+                openAnalyzer: false,
+            }),
+        );
+    }
 
-	if (isProd) {
-		plugins.push(
-			new MiniCssExtractPlugin({
-				filename: 'css/[name].[contenthash:8].css',
-				chunkFilename: 'css/[name].[contenthash:8].css',
-			}),
-		);
-		plugins.push(
-			new CopyPlugin({
-				patterns: [{ from: paths.locales, to: paths.localesBuild }],
-			}),
-		);
-	}
+    if (isProd) {
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: 'css/[name].[contenthash:8].css',
+                chunkFilename: 'css/[name].[contenthash:8].css',
+            }),
+        );
+        plugins.push(
+            new CopyPlugin({
+                patterns: [{ from: paths.locales, to: paths.localesBuild }],
+            }),
+        );
+    }
 
-	return plugins;
+    return plugins;
 }

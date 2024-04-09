@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
 const AdminPage = () => {
-	const { t } = useTranslation();
+    const { t } = useTranslation();
 
-	return (
-		<Page>
-			<div>{t('Админка')}</div>
-		</Page>
-	);
+    return (
+        <Page>
+            <div>{t('Админка')}</div>
+        </Page>
+    );
 };
 
 export default AdminPage;
