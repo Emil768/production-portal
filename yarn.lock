@@ -4303,10 +4303,10 @@ eslint-plugin-jsx-a11y@^6.5.1:
     object.entries "^1.1.7"
     object.fromentries "^2.0.7"
 
-eslint-plugin-murahas-plugin@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-murahas-plugin/-/eslint-plugin-murahas-plugin-0.0.7.tgz#b5e3915bf5e2b4cb350956eb821f9e5f4a3e5174"
-  integrity sha512-G70w1wOvfi4igWC0AJ6K6e3z4AB44TWeOouoH7U5PrmDNgYmlBGwDdsbRRWq5Po8riunlqWpGDD4G3dfoKxIew==
+eslint-plugin-murahas-plugin@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-murahas-plugin/-/eslint-plugin-murahas-plugin-0.0.8.tgz#824ca3dabade9d05a4eb7b500f0580d779256b00"
+  integrity sha512-dgQi5aIKYKi1Aqzv/a6dP/GvmwI2KS53RTC2rcSH77grLxaj4DBZ8+zWOCgdhf3hKeVuNfTjtbsZh7+EysBZiA==
   dependencies:
     micromatch "4.0.5"
     requireindex "^1.2.0"
